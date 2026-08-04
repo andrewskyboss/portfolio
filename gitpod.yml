@@ -1,0 +1,23 @@
+# Gitpod Workspace Configuration
+image:
+  file: .gitpod.dockerfile
+
+ports:
+  - port: 3000
+    onOpen: open-preview
+    name: Local Server
+  - port: 6006
+    onOpen: ignore
+    name: Storybook
+
+tasks:
+  - name: Setup & Run
+    init: npm install
+    command: npm run dev
+
+vscode:
+  extensions:
+    - dbaeumer.vscode-eslint
+    - esbenp.prettier-vscode
+    - dsznajder.es7-react-js-snippets
+    - BradleyG.vscode-tailwindcss
