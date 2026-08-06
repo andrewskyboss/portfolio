@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel&family=Raleway:wght@300;400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&display=swap');
 
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display+SC:wght@400;700&display=swap');
 
@@ -37,7 +37,7 @@
 	--transition-default: all 0.8s ease;
 
 	--font-body: 'Raleway', sans-serif;
-	--font-title: "Libre Baskerville", serif;
+	--font-title: "Lexend", sans-serif;
 	--font-menu: 'Oswald', sans-serif;
 }
 /*---------------- Body ----------------*/
@@ -156,6 +156,9 @@ hr {
 	background-color: var(--color-white);
 } */
 .container-fluid {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	padding-left: 0;
 	padding-right: 0;
 }
@@ -184,17 +187,19 @@ section div.row {
 header div.header-row {
 	display: flex;
 	height: 80px;
-	justify-content: flex-start;
+	justify-content: center;
 	align-items: center;
-	width: 100%;
+	width: 20%;
 	position: relative;
 	z-index: 1000;
 	border-bottom: 1px solid var(--color-brand-4);
 	background-color: var(--color-white);
 }
 header div.navbar-container {
-	display: block;
-	height: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 60%;
 	position: relative;
 	z-index: 10;
 
@@ -230,7 +235,7 @@ body.scrolled header div.header-row {
 	width: 100%;
 
 }
-.header-tags .main-menu-trigger .menu-hamburger {
+/*.header-tags .main-menu-trigger .menu-hamburger {
 	display: inline-block;
 	width: 100%;
 	height: 27px;
@@ -253,14 +258,14 @@ body.scrolled header div.header-row {
 	height: 1px;
 	transition: var(--transition-default);
 	width: 80%;
-}
+}*/
 
 .header-tags .main-menu-trigger.main-menu-visible .menu-hamburger .menu-hamburger-bars i {
 	/*background-color: var(--color-brand-5);*/
 	height: 2px;
 }
 
-.header-tags .main-menu-trigger .menu-hamburger .menu-hamburger-bars i:nth-child(1) {
+/*.header-tags .main-menu-trigger .menu-hamburger .menu-hamburger-bars i:nth-child(1) {
 	top: 0;
 	right: 0;
 }
@@ -297,7 +302,7 @@ body.scrolled header div.header-row {
 
 .header-tags.left .main-menu-trigger:hover {
 	box-shadow: inset 0 -100px 0 0 var(--color-brand-2);
-} 
+} */
 
 #main-menu-level-one {
 	display: flex;
@@ -316,14 +321,14 @@ body.scrolled header div.header-row {
 #main-menu-level-one ul li.menu-item a {
 	width: 100%;
 	height: 100%;
-	padding: 20px;
+	padding: 10px 20px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 	transition: var(--transition-default);
 }
-#main-menu-level-one ul li.menu-item a svg {
+/*#main-menu-level-one ul li.menu-item a svg {
 	overflow: inherit;
 	width: 100%;
 	height: 30px;
@@ -333,7 +338,7 @@ body.scrolled header div.header-row {
     stroke-width: 8px;
     fill: none;
     transition: stroke 0.8s ease;
-}
+}*/
 #main-menu-level-one ul li.menu-item a span.menu-item-title {
 	margin-top: 10px;
 	font-size: 18px;
@@ -343,16 +348,16 @@ body.scrolled header div.header-row {
 	padding: 0;
 }
 #main-menu-level-one ul li.menu-item {
-    width: 12%;
+    width: auto;
     height: 100%;
-    border-right: 1px solid var(--color-brand-5);
+    /*border-right: 1px solid var(--color-brand-5);*/
     
 }
 /*#main-menu-level-one ul li.menu-item:nth-child(5),*/
-#main-menu-level-one ul li.menu-item:nth-child(1) {
+/*#main-menu-level-one ul li.menu-item:nth-child(1) {
 	border-left: 1px solid var(--color-brand-5);
 }
-#main-menu-level-one>ul.menu-header>li:hover a{
+*/#main-menu-level-one>ul.menu-header>li:hover a{
 	color: var(--color-white) !important;
 	box-shadow: inset 0 -200px 0 0 var(--color-brand-1);
 }
@@ -370,7 +375,7 @@ header div.navbar-container div.main-menu {
 */	margin-top: 0px;
 	height: fit-content;
 	background-color: var(--color-white);
-	box-shadow: 0px 6px 12px 2px var(--color-gradient-black-15);
+	/*box-shadow: 0px 6px 12px 2px var(--color-gradient-black-15);*/
 }
 
 /*header > div.navbar-container > div.main-menu.hidden {
