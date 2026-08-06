@@ -155,14 +155,17 @@ hr {
 /* header > div.navbar {
 	background-color: var(--color-white);
 } */
+
+header.container-fluid {
+	background-color: var(--color-white);
+	border-bottom: 1px solid var(--color-brand-4);
+}
 .container-fluid {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background-color: var(--color-white);
 	padding-left: 0;
 	padding-right: 0;
-	border-bottom: 1px solid var(--color-brand-4);
 }
 .section-module {
 	display: flex;
