@@ -159,8 +159,10 @@ hr {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	background-color: var(--color-white);
 	padding-left: 0;
 	padding-right: 0;
+	border-bottom: 1px solid var(--color-brand-4);
 }
 .section-module {
 	display: flex;
@@ -192,7 +194,7 @@ header div.header-row {
 	width: 20%;
 	position: relative;
 	z-index: 1000;
-	border-bottom: 1px solid var(--color-brand-4);
+	/*border-bottom: 1px solid var(--color-brand-4);*/
 	background-color: var(--color-white);
 }
 header div.navbar-container {
@@ -340,7 +342,7 @@ body.scrolled header div.header-row {
     transition: stroke 0.8s ease;
 }*/
 #main-menu-level-one ul li.menu-item a span.menu-item-title {
-	margin-top: 10px;
+	/*margin-top: 10px;*/
 	font-size: 18px;
 	text-transform: uppercase;
 	font-family: var(--font-menu);
