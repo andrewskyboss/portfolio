@@ -16,7 +16,7 @@ document.querySelectorAll(".menu-link").forEach(n => n.addEventListener("click",
 	mainMenu.classList.remove("visible");
 }))
 
-/*----------- Page adding scrolled class ----------*/
+/*------ Page adding scrolled class ----------*/
 
 $(window).on('load scroll', function(e) {
     // Handle scroll
