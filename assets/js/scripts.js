@@ -17,13 +17,29 @@
 
 /*----------- Page adding scrolled class ----------*/
 
-$(window).on('load scroll', function(e) {
-    // Handle scroll
-    if($(document).scrollTop() > scrollThreshold) {
-        $('body').addClass('scrolled');
-    } else {
-        $('body').removeClass('scrolled');
+// $(window).on('load scroll', function(e) {
+//     // Handle scroll
+//     if($(document).scrollTop() > scrollThreshold) {
+//         $('body').addClass('scrolled');
+//     } else {
+//         $('body').removeClass('scrolled');
+//     }
+// });
+
+$(document).ready(function() {
+
+    function handleScroll() {
+        const scrollY = $(window).scrollTop();
+        if (scrollY > 0) {
+            $('body').addClass('scrolled');
+        } else {
+            $('body').removeClass('scrolled');
+        }
     }
+
+    $(window).scroll(handleScroll);
+    handleScroll();
+
 });
 
 /*Start ------------ Title animation --------------*/
@@ -85,9 +101,9 @@ var btn = $('.btt-link');
 $(window).scroll(function() {
   if ($(window).scrollTop() > 300) {
     btn.addClass('show');
-  } else {
+} else {
     btn.removeClass('show');
-  }
+}
 });
 
 btn.on('click', function(e) {
@@ -110,26 +126,26 @@ show_slide = (i) => {
   // hide all the images
   for (i = 0; i < images.length; i++) 
     images[i].style.display = "none";
-  
+
   // remove the active class from the dot
-  for (i = 0; i < dots.length; i++) {
+for (i = 0; i < dots.length; i++) {
     dots[i].className = dots[i].className.replace(" active", "");
-  }
-  
+}
+
   // if index is greater than the amount of images (set it to zero)
-  if (index > images.length - 1) {
+if (index > images.length - 1) {
     index = 0 ;
-  }
-  
+}
+
   // if index is less than zero (set it to the length of images)
-  if (index < 0) {
+if (index < 0) {
     index = images.length - 1;
-  }
+}
 
   // only display the image that's next or previous
-  images[index].style.display = "block";
+images[index].style.display = "block";
   // only make the current dot active
-  dots[index].className += " active";
+dots[index].className += " active";
 
 }
 
