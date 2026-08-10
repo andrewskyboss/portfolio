@@ -1,8 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel&family=Raleway:wght@300;400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400&display=swap');
-
 @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&display=swap');
-
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display+SC:wght@400;700&display=swap');
 
 :root {
@@ -31,8 +29,8 @@
 	--size-body: 16px;
 
 	--border-radius-default: 0px;
-	--border-radius-button: 4px;
-	--border-radius-container: 10px;
+	--border-radius-button: 10px;
+	--border-radius-container: 20px;
 
 	--transition-default: all 0.8s ease;
 
@@ -100,7 +98,7 @@ hr {
 }
 /*---------------- Hero Image module ----------------*/
 .hero-image {
-	height: 60vh;
+	height: 40vh;
 	width: 100%;
 	overflow: hidden;
 	/* float: left; */
@@ -168,7 +166,6 @@ header.container-fluid {
 	border-bottom: 1px solid var(--color-brand-4);
 }
 
-
 .section-module {
 	display: flex;
 	width: 100%;
@@ -178,7 +175,7 @@ header.container-fluid {
 	flex-wrap: wrap;
 	justify-content: center;
 	align-items: center;
-	min-height: 90vh;
+	min-height: 70vh;
 	z-index: 10;
 	background-color: var(--color-white);
 }
@@ -775,7 +772,7 @@ footer {
 .btn-outline-primary:hover {
 	background-color: transparent;
 }
-body > div > div.btt-button.scrolling-up {
+body div.btt-button.scrolling-up {
 	position: fixed;
 	border-radius: var(--border-radius-button);
 	right: 20px;
@@ -783,27 +780,30 @@ body > div > div.btt-button.scrolling-up {
 	z-index: 1000;
 	width: 100px;
 	height: 50px;
+	padding: 0;
 	border-color: var(--color-brand-1);
 	transition: transform 0.8s ease;
 	/*animation: fade-in-bottom-animation 0.8s cubic-bezier(0.25, 0.450, 0.6, 0.79) both;*/
 }
-.btt-link.show {
+.btt-link {
 	border-radius: var(--border-radius-button);
 	color: var(--color-brand-1);
-	background-color: transparent;
-	position: absolute;
+	background-color: var(--color-gradient-white);
+	/*position: absolute;*/
 	height: 100%;
 	width: 100%;
 	right: 0;
 	top: 0;
 	display: flex;
+	justify-content: center;
+	align-items: center;
 	transition: var(--transition-default);
 }
-.btt-link.show:hover {
+.btt-link:hover {
 	box-shadow: inset 0 -100px 0 0 var(--color-brand-1);
 	background-color: transparent;
 }
-body.scrolled > div > div.btt-button.scrolling-up {
+body.scrolled div.btt-button.scrolling-up {
 	position: fixed;
 	/*bottom: 20px;*/
 	transform: translateY(-120px);
@@ -839,18 +839,18 @@ footer {
 	display: inline-block;
 	text-align: center;
 }
-.footer-menu-row .footer-menu > ul {
+.footer-menu-row .footer-menu ul {
 	margin-bottom: 30px;
 }
-.footer-menu-row .footer-menu > ul > li {
+.footer-menu-row .footer-menu ul li {
 	margin-right: 0!important;
 }
-.footer-menu-row .footer-menu > ul > li a.menuitem-link {
+.footer-menu-row .footer-menu ul li a.menuitem-link {
 	padding: 20px;
 	color: #2D325A;
 	transition: var(--transition-default);
 }
-.footer-menu-row .footer-menu > ul > li a.menuitem-link:hover {
+.footer-menu-row .footer-menu ul li a.menuitem-link:hover {
 	color: var(--color-brand-1)!important;
 	background-color: var(--color-brand-4);
 	transition: var(--transition-default);
@@ -879,7 +879,13 @@ footer {
   display: none;
 }*/
 .hero-image-slider-image {
-	position: relative;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+.hero-image-slider-image img {
+	border-radius: var(--border-radius-container);
 }
 .hero-image-slider-content {
 	position: absolute;
@@ -906,6 +912,7 @@ footer {
 	color: var(--color-brand-1);
 	font-weight: bold;
 	font-size: 1rem;
+	background-color: var(--color-gradient-white);
 	transition: var(--transition-default);
 	border-radius: var(--border-radius-button);
 	user-select: none;
@@ -983,6 +990,9 @@ footer {
 }
 
 @media (max-width: 1199px) {
+	.hero-image {
+		height: 20vh;
+	}
 	h1 {
 		font-size: 35px;
 		text-align: center;
@@ -996,6 +1006,13 @@ footer {
 	h4 {
 		font-size: 24px;
 	}
+	.container {
+		height: 50vh;
+	}
+
+	.section-module {
+		min-height: 50vh;
+	}
 
 	.header-row .header-logo .header-logo-link {
 		font-size: var(--size-subtitle);
@@ -1006,9 +1023,67 @@ footer {
 	.section-title h1 {
 		font-size: var(--size-subtitle);
 	}
-	section  .work-history > div > .work-history-items {
+	section .work-history .work-history-items {
 		width: 96%;
 		margin-left: 2%;
+	}
+
+	#main-menu-level-one ul li.menu-item {
+		width: 19%;
+	}
+
+	section div.images-links-6-col .images-links-2-col-single-col, 
+	section div.images-links-3-col .images-links-3-col-single-col {
+		min-height: 35vh;
+	}
+
+}
+
+@media (max-width: 991px) {
+
+	.hero-image {
+		height: 20vh;
+	}
+
+	section div.images-links-3-col .images-links-3-col-single-col.videos {
+		min-height: 13vh;
+	}
+	section div.images-links-6-col .images-links-2-col-single-col, 
+	section div.images-links-3-col .images-links-3-col-single-col {
+		min-height: 35vh;
+	}
+
+	section div.images-links-6-col, 
+	section div.images-links-3-col {
+		gap: 30px;
+		max-width: 98%;
+	}
+
+}
+
+@media (max-width: 771px) {
+
+	.header-row .header-logo .header-logo-link {
+		font-size: calc(var(--size-subtitle) - 6px);
+	}
+
+	#main-menu-level-one ul li.menu-item {
+		width: 25%;
+	}
+
+	#main-menu-level-one ul li.menu-item a svg {
+		display: none;
+	}
+
+	#main-menu-level-one ul li.menu-item a span.menu-item-title {
+		margin-top: 0px;
+		font-size: 15px;
+		font-weight: 400;
+	}
+
+	#main-menu-level-one ul li.menu-item a {
+		padding: 10px;
+		text-align: center;
 	}
 
 }
