@@ -111,7 +111,7 @@ btn.on('click', function(e) {
   $('html, body').animate({scrollTop:0}, '800');
 });
 
-/*----------- Accordion Open Close ----------*/
+/*----------- Hero image slider ----------*/
 var index = 0;
 
 show_slide = (i) => {
