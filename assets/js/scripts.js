@@ -135,38 +135,96 @@ window.addEventListener("load", () => {
 });
 
 /*----------- Dual-Row Scroll Slider Interpolation ----------*/
+// document.addEventListener("DOMContentLoaded", () => {
+//   const section = document.querySelector(".hotel-scroll-section");
+//   const topRow = document.querySelector(".hotel-row-top");
+//   const bottomRow = document.querySelector(".hotel-row-bottom");
+
+//   if (!section || !topRow || !bottomRow) return;
+
+//   const supportsScrollTimeline = CSS.supports && CSS.supports("animation-timeline: view()");
+
+//   if (!supportsScrollTimeline) {
+//     const updateRowPositions = () => {
+//       const rect = section.getBoundingClientRect();
+//       const windowHeight = window.innerHeight;
+//       const totalScrollableDistance = rect.height - windowHeight;
+
+//       if (totalScrollableDistance <= 0) return;
+
+//       let progress = -rect.top / totalScrollableDistance;
+//       progress = Math.max(0, Math.min(1, progress));
+
+//       const topX = 0 - progress * 150;
+//       const bottomX = -150 + progress * 150;
+
+//       topRow.style.transform = `translateX(${topX}vw)`;
+//       bottomRow.style.transform = `translateX(${bottomX}vw)`;
+//     };
+
+//     window.addEventListener("scroll", () => {
+//       requestAnimationFrame(updateRowPositions);
+//     });
+
+//     window.addEventListener("resize", updateRowPositions);
+//     updateRowPositions();
+//   }
+// });
+
+
 document.addEventListener("DOMContentLoaded", () => {
   const section = document.querySelector(".hotel-scroll-section");
   const topRow = document.querySelector(".hotel-row-top");
   const bottomRow = document.querySelector(".hotel-row-bottom");
 
+  // Guard clause: ensure elements exist before executing
   if (!section || !topRow || !bottomRow) return;
 
-  const supportsScrollTimeline = CSS.supports && CSS.supports("animation-timeline: view()");
+  // Let modern browsers use native CSS scroll timelines
+  const supportsCSSScrollTimeline =
+    CSS.supports && CSS.supports("animation-timeline: view()");
 
-  if (!supportsScrollTimeline) {
-    const updateRowPositions = () => {
-      const rect = section.getBoundingClientRect();
-      const windowHeight = window.innerHeight;
-      const totalScrollableDistance = rect.height - windowHeight;
+  if (supportsCSSScrollTimeline) return;
 
-      if (totalScrollableDistance <= 0) return;
+  let ticking = false;
 
-      let progress = -rect.top / totalScrollableDistance;
-      progress = Math.max(0, Math.min(1, progress));
+  const updateRowPositions = () => {
+    const rect = section.getBoundingClientRect();
+    const windowHeight = window.innerHeight;
+    const totalScrollableDistance = rect.height - windowHeight;
 
-      const topX = 0 - progress * 150;
-      const bottomX = -150 + progress * 150;
+    if (totalScrollableDistance <= 0) {
+      ticking = false;
+      return;
+    }
 
-      topRow.style.transform = `translateX(${topX}vw)`;
-      bottomRow.style.transform = `translateX(${bottomX}vw)`;
-    };
+    // Normalized progress between 0 and 1
+    let progress = -rect.top / totalScrollableDistance;
+    progress = Math.max(0, Math.min(1, progress));
 
-    window.addEventListener("scroll", () => {
+    // Calculate translation percentages
+    const topX = -progress * 35;          // Slides left: 0% -> -35%
+    const bottomX = -35 + progress * 35;  // Slides right: -35% -> 0%
+
+    topRow.style.transform = `translateX(${topX}%)`;
+    bottomRow.style.transform = `translateX(${bottomX}%)`;
+
+    ticking = false;
+  };
+
+  const onScroll = () => {
+    if (!ticking) {
       requestAnimationFrame(updateRowPositions);
-    });
+      ticking = true;
+    }
+  };
 
-    window.addEventListener("resize", updateRowPositions);
-    updateRowPositions();
-  }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", onScroll, { passive: true });
+
+  // Initial calculation on page load
+  updateRowPositions();
 });
+
+
+
