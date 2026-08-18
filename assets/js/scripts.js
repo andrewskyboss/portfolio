@@ -171,59 +171,59 @@ window.addEventListener("load", () => {
 //   }
 // });
 
-
 document.addEventListener("DOMContentLoaded", () => {
   const section = document.querySelector(".hotel-scroll-section");
+  const stickyContainer = document.querySelector(".hotel-scroll-sticky");
   const topRow = document.querySelector(".hotel-row-top");
   const bottomRow = document.querySelector(".hotel-row-bottom");
 
-  // Guard clause: ensure elements exist before executing
-  if (!section || !topRow || !bottomRow) return;
-
-  // Let modern browsers use native CSS scroll timelines
-  const supportsCSSScrollTimeline =
-    CSS.supports && CSS.supports("animation-timeline: view()");
-
-  if (supportsCSSScrollTimeline) return;
+  if (!section || !stickyContainer || !topRow || !bottomRow) return;
 
   let ticking = false;
 
-  const updateRowPositions = () => {
-    const rect = section.getBoundingClientRect();
-    const windowHeight = window.innerHeight;
-    const totalScrollableDistance = rect.height - windowHeight;
+  const calculateTransforms = () => {
+    const sectionRect = section.getBoundingClientRect();
+    const viewportWidth = window.innerWidth;
+    const viewportHeight = window.innerHeight;
 
-    if (totalScrollableDistance <= 0) {
-      ticking = false;
-      return;
-    }
+    // Total distance the section can scroll while pinned
+    const maxScrollDistance = sectionRect.height - viewportHeight;
 
-    // Normalized progress between 0 and 1
-    let progress = -rect.top / totalScrollableDistance;
+    if (maxScrollDistance <= 0) return;
+
+    // Calculate progress: 0 when top of section meets top of viewport, 1 when section ends
+    let progress = -sectionRect.top / maxScrollDistance;
     progress = Math.max(0, Math.min(1, progress));
 
-    // Calculate translation percentages
-    const topX = -progress * 35;          // Slides left: 0% -> -35%
-    const bottomX = -35 + progress * 35;  // Slides right: -35% -> 0%
+    // Calculate exact scroll overflow distances in pixels for accurate edge-to-edge sliding
+    const topRowOverflow = topRow.scrollWidth - viewportWidth + 32; // 32px padding offset
+    const bottomRowOverflow = bottomRow.scrollWidth - viewportWidth + 32;
 
-    topRow.style.transform = `translateX(${topX}%)`;
-    bottomRow.style.transform = `translateX(${bottomX}%)`;
+    // Top row: starts at 0, slides LEFT by the exact overflow amount
+    const topX = -progress * Math.max(topRowOverflow, 0);
+
+    // Bottom row: starts offset to the LEFT (-overflow), slides RIGHT to 0
+    const bottomX = -Math.max(bottomRowOverflow, 0) + (progress * Math.max(bottomRowOverflow, 0));
+
+    // Apply hardware-accelerated transforms
+    topRow.style.transform = `translate3d(${topX}px, 0, 0)`;
+    bottomRow.style.transform = `translate3d(${bottomX}px, 0, 0)`;
 
     ticking = false;
   };
 
   const onScroll = () => {
     if (!ticking) {
-      requestAnimationFrame(updateRowPositions);
+      requestAnimationFrame(calculateTransforms);
       ticking = true;
     }
   };
 
   window.addEventListener("scroll", onScroll, { passive: true });
-  window.addEventListener("resize", onScroll, { passive: true });
+  window.addEventListener("resize", calculateTransforms, { passive: true });
 
-  // Initial calculation on page load
-  updateRowPositions();
+  // Initial calculation
+  calculateTransforms();
 });
 
 
