@@ -18,6 +18,12 @@
 	--color-black: #000000;
 	--color-white: #ffffff;
 
+	--color-bkg-01: #EFF0FC;
+	--color-bkg-02: #FCEDF6;
+	--color-bkg-03: #EAFBFC;
+	--color-bkg-04: #F2FCE2;
+	--color-bkg-05: #FCF2ED;
+
 	--color-gradient-white:  rgba(241, 241, 241, 0.6);
 	--color-gradient-black:  rgba(0, 0, 0, 0.6);
 	--color-gradient-black-15: rgb(0 0 0 / 15%);
@@ -183,6 +189,11 @@ header.container-fluid {
 	padding-bottom: 70px;
 	margin-bottom: 100px;
 	box-shadow: 0px 45px 43px -10px rgb(0 0 0 / 50%);
+}
+
+.section-module.top-section {
+	animation: 20s linear infinite hero-bkg-cycle!important;
+    animation-delay: var(--bg-cycle-delay,0s)!important;
 }
 
 section div.row {
@@ -989,6 +1000,49 @@ footer {
 	}
 }
 
+@property --hero-bkg {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: var(--color-bkg-01);
+}
+
+@keyframes hero-bkg-cycle {
+    0% {
+        --hero-bkg: var(--color-bkg-01);
+        background-color: var(--color-bkg-01);
+        animation-timing-function: ease-out;
+    }
+
+    20% {
+        --hero-bkg: var(--color-bkg-02);
+        background-color: var(--color-bkg-02);
+        animation-timing-function: ease-out;
+    }
+
+    40% {
+        --hero-bkg: var(--color-bkg-03);
+        background-color: var(--color-bkg-03);
+        animation-timing-function: ease-out;
+    }
+
+    60% {
+        --hero-bkg: var(--color-bkg-04);
+        background-color: var(--color-bkg-04);
+        animation-timing-function: ease-out;
+    }
+
+    80% {
+        --hero-bkg: var(--color-bkg-05);
+        background-color: var(--color-bkg-05);
+        animation-timing-function: ease-out;
+    }
+
+    to {
+        --hero-bkg: var(--color-bkg-01);
+        background-color: var(--color-bkg-01);
+    }
+}
+
 @media (max-width: 1199px) {
 	.hero-image {
 		height: 20vh;
@@ -1097,7 +1151,7 @@ footer {
 .hotel-scroll-section {
   position: relative;
   height: 300vh; /* Scroll track distance controlling speed */
-  background-color: #121212;
+  background-color: var(--);
   overflow: visible;
 }
 
@@ -1136,7 +1190,7 @@ footer {
   flex-shrink: 0;
   display: block;
   text-decoration: none;
-  color: #ffffff;
+  color: var(--color-white);
   overflow: hidden;
   transition: transform 0.4s ease;
 }
