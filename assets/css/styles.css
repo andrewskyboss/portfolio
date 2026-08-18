@@ -35,8 +35,8 @@
 	--size-body: 16px;
 
 	--border-radius-default: 0px;
-	--border-radius-button: 10px;
-	--border-radius-container: 20px;
+	--border-radius-button: 4px;
+	--border-radius-container: 8px;
 
 	--transition-default: all 0.8s ease;
 
