@@ -777,12 +777,23 @@ form .form-input.textarea {
 }
 
 .section-title {
+	display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 	text-align: center;
 	margin-top: 10px;
 	margin-bottom: 40px;
 }
 .section-title h1 {
 	animation: fade-in-from-bottom-animation 0.8s cubic-bezier(0.25, 0.450, 0.6, 0.79) both;
+}
+
+.section-title p {
+	text-align: center;
+	width: 90%;
+	max-width: 50vw;
+	font-size: calc(var(--size-body) + 5px);
 }
 
 /*---------------- Social links module ----------------*/
@@ -1194,14 +1205,14 @@ footer {
 .hotel-scroll-section {
   position: relative;
   overflow: hidden; /* Clips row overflow outside viewport */
-  padding: 4rem 0;
+  padding: 2rem 0;
   width: 100%;
 }
 
 .hotel-scroll-wrapper {
   display: flex;
   flex-direction: column;
-  gap: 2.5rem;
+  gap: 2rem;
   width: 100%;
 }
 
@@ -1216,14 +1227,16 @@ footer {
 /* Tile layout */
 .hotel-tile {
   position: relative;
-  width: 320px;
-  height: 220px;
-  border-radius: 12px;
+  /*width: 320px;
+  height: 220px;*/
+  width: 20vw;
+  height: 35vh;
+  border-radius: var(--border-radius-container);
   overflow: hidden;
   flex-shrink: 0;
   text-decoration: none;
-  color: #ffffff;
-  background-color: #1a1a1a;
+  color: var(--color-white);
+  background-color: var(--color-brand-4);
 }
 
 .hotel-tile img {
@@ -1240,18 +1253,18 @@ footer {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding: 1.25rem;
+  padding: 15px;
 }
 
 .hotel-tile-title {
-  font-size: 1.15rem;
+  font-size: calc(var(--size-body) + 6px);
   font-weight: 600;
-  margin-bottom: 0.25rem;
+  margin-bottom: 10px;
 }
 
 .hotel-tile-desc {
-  font-size: 0.875rem;
-  opacity: 0.9;
+  font-size: calc(var(--size-body) + 2px);
+  opacity: 1;
 }
 
 
