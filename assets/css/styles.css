@@ -603,7 +603,7 @@ section div.images-links-3-col .images-links-3-col-single-col a:hover span .subt
 section .images-links-6-col .project-description {
 	position: absolute;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     flex-direction: column;
     padding: 20px;
@@ -613,6 +613,18 @@ section .images-links-6-col .project-description {
     height: 100%;
     background-color: var(--color-white);
     overflow: auto;
+}
+
+section .images-links-6-col .description-container {
+	display: flex;
+	flex-direction: column;
+}
+
+section .images-links-6-col .description-btns {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 20px;
 }
 
 /*---------------- Skills module ----------------*/
@@ -1165,7 +1177,7 @@ footer {
 
 .hotel-scroll-section {
   position: relative;
-  height: 100vh; /* Scroll track distance controlling speed */
+  height: 300vh; /* Scroll track distance controlling speed */
   background-color: var(--color-bkg-01);
   overflow: visible;
   view-timeline-name: --hotel-scroll-timeline;
