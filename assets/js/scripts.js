@@ -170,3 +170,47 @@ window.addEventListener("onload", show_slide(index));
 // 		});
 // 	});
 // };
+
+
+/*----------- Dual-Row Scroll Slider Interpolation ----------*/
+document.addEventListener("DOMContentLoaded", () => {
+  const section = document.querySelector(".hotel-scroll-section");
+  const topRow = document.querySelector(".hotel-row-top");
+  const bottomRow = document.querySelector(".hotel-row-bottom");
+
+  if (!section || !topRow || !bottomRow) return;
+
+  // Fallback for browsers that don't support CSS scroll timelines
+  const supportsScrollTimeline = CSS.supports && CSS.supports("animation-timeline: view()");
+
+  if (!supportsScrollTimeline) {
+    const updateRowPositions = () => {
+      const rect = section.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+      const totalScrollableDistance = rect.height - windowHeight;
+
+      // Calculate scroll progress through the 300vh section (0 to 1)
+      let progress = -rect.top / totalScrollableDistance;
+      progress = Math.max(0, Math.min(1, progress));
+
+      // Interpolate horizontal translations
+      // Top Row: 0vw -> -75vw (fullscreen lock) -> -150vw
+      const topX = 0 - progress * 150;
+
+      // Bottom Row: -150vw -> -75vw (fullscreen lock) -> 0vw
+      const bottomX = -150 + progress * 150;
+
+      topRow.style.transform = `translateX(${topX}vw)`;
+      bottomRow.style.transform = `translateX(${bottomX}vw)`;
+    };
+
+    window.addEventListener("scroll", () => {
+      requestAnimationFrame(updateRowPositions);
+    });
+
+    window.addEventListener("resize", updateRowPositions);
+    updateRowPositions();
+  }
+});
+
+
