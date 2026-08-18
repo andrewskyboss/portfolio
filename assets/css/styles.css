@@ -1150,7 +1150,7 @@ footer {
 
 .hotel-scroll-section {
   position: relative;
-  height: 150vh; /* Scroll track distance controlling speed */
+  height: 100vh; /* Scroll track distance controlling speed */
   background-color: var(--color-bkg-01);
   overflow: visible;
 }
