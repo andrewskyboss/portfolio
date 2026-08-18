@@ -1,59 +1,75 @@
+
 /*----------- Mobile menu Open Close ----------*/
-// Uncomment if using pure vanilla mobile menu toggle
-/*
-const mainMenuTrigger = document.querySelector(".main-menu-trigger");
-const mainMenu = document.querySelector(".main-menu");
+// var scrollThreshold = 50;
 
-if (mainMenuTrigger && mainMenu) {
-  mainMenuTrigger.addEventListener("click", () => {
-    mainMenuTrigger.classList.toggle("main-menu-visible");
-    mainMenu.classList.toggle("visible");
-  });
+// const mainMenuTrigger = document.querySelector(".main-menu-trigger");
+// const mainMenu = document.querySelector(".main-menu");
 
-  document.querySelectorAll(".menu-link").forEach((link) => {
-    link.addEventListener("click", () => {
-      mainMenuTrigger.classList.remove("main-menu-visible");
-      mainMenu.classList.remove("visible");
-    });
-  });
-}
-*/
+// mainMenuTrigger.addEventListener("click", () => {
+// 	mainMenuTrigger.classList.toggle("main-menu-visible");
+// 	mainMenu.classList.toggle("visible");
+// })
+
+// document.querySelectorAll(".menu-link").forEach(n => n.addEventListener("click", ()=> {
+// 	mainMenuTrigger.classList.remove("main-menu-visible");
+// 	mainMenu.classList.remove("visible");
+// }))
 
 /*----------- Page adding scrolled class ----------*/
+
+// $(window).on('load scroll', function(e) {
+//     // Handle scroll
+//     if($(document).scrollTop() > scrollThreshold) {
+//         $('body').addClass('scrolled');
+//     } else {
+//         $('body').removeClass('scrolled');
+//     }
+// });
+
 $(document).ready(function() {
-  function handleScroll() {
-    const scrollY = $(window).scrollTop();
-    if (scrollY > 0) {
-      $('body').addClass('scrolled');
-    } else {
-      $('body').removeClass('scrolled');
-    }
-  }
 
-  $(window).scroll(handleScroll);
-  handleScroll();
+    function handleScroll() {
+        const scrollY = $(window).scrollTop();
+        if (scrollY > 0) {
+            $('body').addClass('scrolled');
+        } else {
+            $('body').removeClass('scrolled');
+        }
+    }
+
+    $(window).scroll(handleScroll);
+    handleScroll();
+
 });
 
-/*----------- Title & Section Scroll Animations ----------*/
-const sectionAnimations = document.querySelectorAll('.section-module');
-const accordionAllTriggers = document.querySelectorAll('.work-history-item--trigger');
-const skillsItems = document.querySelectorAll('.skills-item');
+/*Start ------------ Title animation --------------*/
+var sectionAnimations = document.querySelectorAll('.section-module');
+var accordionAllTriggers = document.querySelectorAll('.work-history-item--trigger');
+var skillsItems = document.querySelectorAll('.skills-item');
 
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.intersectionRatio > 0) {
-      entry.target.classList.add('add-animation');
-    } else {
-      entry.target.classList.remove('add-animation');
-    }
-  });
+observer = new IntersectionObserver((entries) => {
+	entries.forEach(entry => {
+		if (entry.intersectionRatio > 0) {
+			entry.target.classList.add('add-animation');
+		} else {
+			entry.target.classList.remove('add-animation');
+		}
+	});
 });
 
-sectionAnimations.forEach((item) => observer.observe(item));
-accordionAllTriggers.forEach((item) => observer.observe(item));
-skillsItems.forEach((item) => observer.observe(item));
+sectionAnimations.forEach(sectionAnimation => {
+	observer.observe(sectionAnimation);
+});
+accordionAllTriggers.forEach(accordionAllTrigger => {
+    observer.observe(accordionAllTrigger);
+});
+skillsItems.forEach(skillsItem => {
+    observer.observe(skillsItem);
+});
 
-/*----------- Accordion Open / Close ----------*/
+/*----------- Accordion Open Close ----------*/
+
+
 const accordionTriggers = document.querySelectorAll('.work-history-item--trigger');
 
 accordionTriggers.forEach((trigger) => {
@@ -61,151 +77,135 @@ accordionTriggers.forEach((trigger) => {
 });
 
 function expandAccordion(event) {
-  const triggerElement = event.currentTarget;
-  const isPanelExpanded = triggerElement.getAttribute('aria-expanded');
-  
-  collapseAllAccordions();
-  
-  if (isPanelExpanded === "false" || !isPanelExpanded) {
-    triggerElement.setAttribute('aria-expanded', "true");
-  } else {
-    triggerElement.setAttribute('aria-expanded', "false");
-  }
+    const { target: targetElement } = event;
+    const isPanelExpanded = targetElement.getAttribute('aria-expanded');
+    
+    collapseAllAccordions();
+    
+    if (isPanelExpanded === "false") {
+        targetElement.setAttribute('aria-expanded', true);
+    } else {
+        targetElement.setAttribute('aria-expanded', false);
+    }
 }
 
 function collapseAllAccordions() {
-  accordionTriggers.forEach((trigger) => {
-    trigger.setAttribute('aria-expanded', "false");
-  });
+    accordionTriggers.forEach((trigger) => {
+        trigger.setAttribute('aria-expanded', false);
+    });
 }
 
-/*----------- Scroll to Top ----------*/
-const $btn = $('.btt-link');
+/*----------- Scroll to top ----------*/
+var btn = $('.btt-link');
 
 $(window).scroll(function() {
   if ($(window).scrollTop() > 300) {
-    $btn.addClass('show');
-  } else {
-    $btn.removeClass('show');
-  }
+    btn.addClass('show');
+} else {
+    btn.removeClass('show');
+}
 });
 
-$btn.on('click', function(e) {
+btn.on('click', function(e) {
   e.preventDefault();
-  $('html, body').animate({ scrollTop: 0 }, 800);
+  $('html, body').animate({scrollTop:0}, '800');
 });
 
-/*----------- Hero Image Slider ----------*/
-let index = 0;
+/*----------- Hero image slider ----------*/
+var index = 0;
 
-const show_slide = (step) => {
-  const images = document.getElementsByClassName("hero-image-slider-image");
-  const dots = document.getElementsByClassName("dot");
+show_slide = (i) => {
+  //increment/decrement slide index
+  index += i;
 
-  if (images.length === 0) return;
+  //grab all the images
+  var images = document.getElementsByClassName("hero-image-slider-image");
+  //grab all the dots
+  var dots = document.getElementsByClassName("dot");
 
-  index += step;
-
-  if (index > images.length - 1) {
-    index = 0;
-  }
-  if (index < 0) {
-    index = images.length - 1;
-  }
-
-  // Hide all images
-  for (let i = 0; i < images.length; i++) {
+  // hide all the images
+  for (i = 0; i < images.length; i++) 
     images[i].style.display = "none";
-  }
 
-  // Remove active class from dots
-  for (let i = 0; i < dots.length; i++) {
+  // remove the active class from the dot
+for (i = 0; i < dots.length; i++) {
     dots[i].className = dots[i].className.replace(" active", "");
-  }
+}
 
-  // Display target slide
-  images[index].style.display = "block";
-  if (dots[index]) {
-    dots[index].className += " active";
-  }
-};
+  // if index is greater than the amount of images (set it to zero)
+if (index > images.length - 1) {
+    index = 0 ;
+}
 
-window.addEventListener("load", () => {
-  show_slide(0);
-});
+  // if index is less than zero (set it to the length of images)
+if (index < 0) {
+    index = images.length - 1;
+}
 
-/*----------- Dual-Row Scroll Slider Interpolation ----------*/
-// document.addEventListener("DOMContentLoaded", () => {
-//   const section = document.querySelector(".hotel-scroll-section");
-//   const topRow = document.querySelector(".hotel-row-top");
-//   const bottomRow = document.querySelector(".hotel-row-bottom");
+  // only display the image that's next or previous
+images[index].style.display = "block";
+  // only make the current dot active
+dots[index].className += " active";
 
-//   if (!section || !topRow || !bottomRow) return;
+}
 
-//   const supportsScrollTimeline = CSS.supports && CSS.supports("animation-timeline: view()");
+window.addEventListener("onload", show_slide(index));
 
-//   if (!supportsScrollTimeline) {
-//     const updateRowPositions = () => {
-//       const rect = section.getBoundingClientRect();
-//       const windowHeight = window.innerHeight;
-//       const totalScrollableDistance = rect.height - windowHeight;
+// window.onload = function() {
 
-//       if (totalScrollableDistance <= 0) return;
+// 	document.getElementById('confirmation-title').textContent = '';
 
-//       let progress = -rect.top / totalScrollableDistance;
-//       progress = Math.max(0, Math.min(1, progress));
+// 	document.getElementById('contact-us-form').addEventListener('submit', function(event) {
+// 	event.preventDefault();
 
-//       const topX = 0 - progress * 150;
-//       const bottomX = -150 + progress * 150;
+// 		emailjs.sendForm('service_u9b5bpg', 'emplate_4bc1e0j', this)
+// 		.then(function() {
+// 			console.log('SUCCESS!');
+// 			$('.form-input').val('');
+// 			document.getElementById('confirmation-title').textContent = 'Thank You. I will be in touch with you';
 
-//       topRow.style.transform = `translateX(${topX}vw)`;
-//       bottomRow.style.transform = `translateX(${bottomX}vw)`;
-//     };
+// 		}, function(error) {
+// 			console.log('FAILED...', error);
+// 			document.getElementById('confirmation-title').textContent = 'Sorry, something went wrong. Try Later.';
+// 		});
+// 	});
+// };
 
-//     window.addEventListener("scroll", () => {
-//       requestAnimationFrame(updateRowPositions);
-//     });
-
-//     window.addEventListener("resize", updateRowPositions);
-//     updateRowPositions();
-//   }
-// });
 
 document.addEventListener("DOMContentLoaded", () => {
   const section = document.querySelector(".hotel-scroll-section");
-  const stickyContainer = document.querySelector(".hotel-scroll-sticky");
   const topRow = document.querySelector(".hotel-row-top");
   const bottomRow = document.querySelector(".hotel-row-bottom");
 
-  if (!section || !stickyContainer || !topRow || !bottomRow) return;
+  if (!section || !topRow || !bottomRow) return;
 
   let ticking = false;
 
-  const calculateTransforms = () => {
-    const sectionRect = section.getBoundingClientRect();
-    const viewportWidth = window.innerWidth;
-    const viewportHeight = window.innerHeight;
+  const animateOnScroll = () => {
+    const rect = section.getBoundingClientRect();
+    const windowHeight = window.innerHeight;
+    const windowWidth = window.innerWidth;
 
-    // Total distance the section can scroll while pinned
-    const maxScrollDistance = sectionRect.height - viewportHeight;
+    // Total vertical distance over which the section is visible in the viewport
+    const totalVisibleDistance = rect.height + windowHeight;
 
-    if (maxScrollDistance <= 0) return;
+    if (totalVisibleDistance <= 0) return;
 
-    // Calculate progress: 0 when top of section meets top of viewport, 1 when section ends
-    let progress = -sectionRect.top / maxScrollDistance;
+    // Calculate progress (0 when top enters bottom of viewport -> 1 when bottom leaves top)
+    let progress = (windowHeight - rect.top) / totalVisibleDistance;
     progress = Math.max(0, Math.min(1, progress));
 
-    // Calculate exact scroll overflow distances in pixels for accurate edge-to-edge sliding
-    const topRowOverflow = topRow.scrollWidth - viewportWidth + 32; // 32px padding offset
-    const bottomRowOverflow = bottomRow.scrollWidth - viewportWidth + 32;
+    // TOP ROW: Start at +viewportWidth (off right), end at -topRow.scrollWidth (off left)
+    const topStart = windowWidth;
+    const topEnd = -topRow.scrollWidth;
+    const topX = topStart + progress * (topEnd - topStart);
 
-    // Top row: starts at 0, slides LEFT by the exact overflow amount
-    const topX = -progress * Math.max(topRowOverflow, 0);
+    // BOTTOM ROW: Start at -bottomRow.scrollWidth (off left), end at +viewportWidth (off right)
+    const bottomStart = -bottomRow.scrollWidth;
+    const bottomEnd = windowWidth;
+    const bottomX = bottomStart + progress * (bottomEnd - bottomStart);
 
-    // Bottom row: starts offset to the LEFT (-overflow), slides RIGHT to 0
-    const bottomX = -Math.max(bottomRowOverflow, 0) + (progress * Math.max(bottomRowOverflow, 0));
-
-    // Apply hardware-accelerated transforms
+    // Hardware-accelerated 3D translations
     topRow.style.transform = `translate3d(${topX}px, 0, 0)`;
     bottomRow.style.transform = `translate3d(${bottomX}px, 0, 0)`;
 
@@ -214,17 +214,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const onScroll = () => {
     if (!ticking) {
-      requestAnimationFrame(calculateTransforms);
+      requestAnimationFrame(animateOnScroll);
       ticking = true;
     }
   };
 
   window.addEventListener("scroll", onScroll, { passive: true });
-  window.addEventListener("resize", calculateTransforms, { passive: true });
+  window.addEventListener("resize", animateOnScroll, { passive: true });
 
-  // Initial calculation
-  calculateTransforms();
+  // Initial calculation on page load
+  animateOnScroll();
 });
-
 
 
