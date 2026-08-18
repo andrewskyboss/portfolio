@@ -1180,8 +1180,8 @@ footer {
   height: 300vh; /* Scroll track distance controlling speed */
   background-color: var(--color-bkg-01);
   overflow: visible;
-  view-timeline-name: --hotel-scroll-timeline;
-  view-timeline-axis: block;
+  /*view-timeline-name: --hotel-scroll-timeline;
+  view-timeline-axis: block;*/
 }
 
 .hotel-scroll-sticky {
@@ -1192,7 +1192,7 @@ footer {
   overflow: hidden;
   display: flex;
   align-items: center;
-  justify-content: center;
+  /*justify-content: center;*/
 }
 
 .hotel-scroll-wrapper {
@@ -1216,13 +1216,14 @@ footer {
   display: flex;
   gap: 1.5rem;
   width: max-content;
-  will-change: transform;
+  /*will-change: transform;*/
+  transform: translate3d(0, 0, 0); /* Force GPU acceleration */
 }
 
 /* Base starting position for bottom row */
-.hotel-row-bottom {
+/*.hotel-row-bottom {
   transform: translateX(-50%);
-}
+}*/
 
 /* Individual Tiles */
 .hotel-tile {
