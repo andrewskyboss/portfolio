@@ -1,75 +1,59 @@
-
 /*----------- Mobile menu Open Close ----------*/
-// var scrollThreshold = 50;
+// Uncomment if using pure vanilla mobile menu toggle
+/*
+const mainMenuTrigger = document.querySelector(".main-menu-trigger");
+const mainMenu = document.querySelector(".main-menu");
 
-// const mainMenuTrigger = document.querySelector(".main-menu-trigger");
-// const mainMenu = document.querySelector(".main-menu");
+if (mainMenuTrigger && mainMenu) {
+  mainMenuTrigger.addEventListener("click", () => {
+    mainMenuTrigger.classList.toggle("main-menu-visible");
+    mainMenu.classList.toggle("visible");
+  });
 
-// mainMenuTrigger.addEventListener("click", () => {
-// 	mainMenuTrigger.classList.toggle("main-menu-visible");
-// 	mainMenu.classList.toggle("visible");
-// })
-
-// document.querySelectorAll(".menu-link").forEach(n => n.addEventListener("click", ()=> {
-// 	mainMenuTrigger.classList.remove("main-menu-visible");
-// 	mainMenu.classList.remove("visible");
-// }))
+  document.querySelectorAll(".menu-link").forEach((link) => {
+    link.addEventListener("click", () => {
+      mainMenuTrigger.classList.remove("main-menu-visible");
+      mainMenu.classList.remove("visible");
+    });
+  });
+}
+*/
 
 /*----------- Page adding scrolled class ----------*/
-
-// $(window).on('load scroll', function(e) {
-//     // Handle scroll
-//     if($(document).scrollTop() > scrollThreshold) {
-//         $('body').addClass('scrolled');
-//     } else {
-//         $('body').removeClass('scrolled');
-//     }
-// });
-
 $(document).ready(function() {
-
-    function handleScroll() {
-        const scrollY = $(window).scrollTop();
-        if (scrollY > 0) {
-            $('body').addClass('scrolled');
-        } else {
-            $('body').removeClass('scrolled');
-        }
+  function handleScroll() {
+    const scrollY = $(window).scrollTop();
+    if (scrollY > 0) {
+      $('body').addClass('scrolled');
+    } else {
+      $('body').removeClass('scrolled');
     }
+  }
 
-    $(window).scroll(handleScroll);
-    handleScroll();
-
+  $(window).scroll(handleScroll);
+  handleScroll();
 });
 
-/*Start ------------ Title animation --------------*/
-var sectionAnimations = document.querySelectorAll('.section-module');
-var accordionAllTriggers = document.querySelectorAll('.work-history-item--trigger');
-var skillsItems = document.querySelectorAll('.skills-item');
+/*----------- Title & Section Scroll Animations ----------*/
+const sectionAnimations = document.querySelectorAll('.section-module');
+const accordionAllTriggers = document.querySelectorAll('.work-history-item--trigger');
+const skillsItems = document.querySelectorAll('.skills-item');
 
-observer = new IntersectionObserver((entries) => {
-	entries.forEach(entry => {
-		if (entry.intersectionRatio > 0) {
-			entry.target.classList.add('add-animation');
-		} else {
-			entry.target.classList.remove('add-animation');
-		}
-	});
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.intersectionRatio > 0) {
+      entry.target.classList.add('add-animation');
+    } else {
+      entry.target.classList.remove('add-animation');
+    }
+  });
 });
 
-sectionAnimations.forEach(sectionAnimation => {
-	observer.observe(sectionAnimation);
-});
-accordionAllTriggers.forEach(accordionAllTrigger => {
-    observer.observe(accordionAllTrigger);
-});
-skillsItems.forEach(skillsItem => {
-    observer.observe(skillsItem);
-});
+sectionAnimations.forEach((item) => observer.observe(item));
+accordionAllTriggers.forEach((item) => observer.observe(item));
+skillsItems.forEach((item) => observer.observe(item));
 
-/*----------- Accordion Open Close ----------*/
-
-
+/*----------- Accordion Open / Close ----------*/
 const accordionTriggers = document.querySelectorAll('.work-history-item--trigger');
 
 accordionTriggers.forEach((trigger) => {
@@ -77,100 +61,78 @@ accordionTriggers.forEach((trigger) => {
 });
 
 function expandAccordion(event) {
-    const { target: targetElement } = event;
-    const isPanelExpanded = targetElement.getAttribute('aria-expanded');
-    
-    collapseAllAccordions();
-    
-    if (isPanelExpanded === "false") {
-        targetElement.setAttribute('aria-expanded', true);
-    } else {
-        targetElement.setAttribute('aria-expanded', false);
-    }
+  const triggerElement = event.currentTarget;
+  const isPanelExpanded = triggerElement.getAttribute('aria-expanded');
+  
+  collapseAllAccordions();
+  
+  if (isPanelExpanded === "false" || !isPanelExpanded) {
+    triggerElement.setAttribute('aria-expanded', "true");
+  } else {
+    triggerElement.setAttribute('aria-expanded', "false");
+  }
 }
 
 function collapseAllAccordions() {
-    accordionTriggers.forEach((trigger) => {
-        trigger.setAttribute('aria-expanded', false);
-    });
+  accordionTriggers.forEach((trigger) => {
+    trigger.setAttribute('aria-expanded', "false");
+  });
 }
 
-/*----------- Scroll to top ----------*/
-var btn = $('.btt-link');
+/*----------- Scroll to Top ----------*/
+const $btn = $('.btt-link');
 
 $(window).scroll(function() {
   if ($(window).scrollTop() > 300) {
-    btn.addClass('show');
-} else {
-    btn.removeClass('show');
-}
+    $btn.addClass('show');
+  } else {
+    $btn.removeClass('show');
+  }
 });
 
-btn.on('click', function(e) {
+$btn.on('click', function(e) {
   e.preventDefault();
-  $('html, body').animate({scrollTop:0}, '800');
+  $('html, body').animate({ scrollTop: 0 }, 800);
 });
 
-/*----------- Hero image slider ----------*/
-var index = 0;
+/*----------- Hero Image Slider ----------*/
+let index = 0;
 
-show_slide = (i) => {
-  //increment/decrement slide index
-  index += i;
+const show_slide = (step) => {
+  const images = document.getElementsByClassName("hero-image-slider-image");
+  const dots = document.getElementsByClassName("dot");
 
-  //grab all the images
-  var images = document.getElementsByClassName("hero-image-slider-image");
-  //grab all the dots
-  var dots = document.getElementsByClassName("dot");
+  if (images.length === 0) return;
 
-  // hide all the images
-  for (i = 0; i < images.length; i++) 
-    images[i].style.display = "none";
+  index += step;
 
-  // remove the active class from the dot
-for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-}
-
-  // if index is greater than the amount of images (set it to zero)
-if (index > images.length - 1) {
-    index = 0 ;
-}
-
-  // if index is less than zero (set it to the length of images)
-if (index < 0) {
+  if (index > images.length - 1) {
+    index = 0;
+  }
+  if (index < 0) {
     index = images.length - 1;
-}
+  }
 
-  // only display the image that's next or previous
-images[index].style.display = "block";
-  // only make the current dot active
-dots[index].className += " active";
+  // Hide all images
+  for (let i = 0; i < images.length; i++) {
+    images[i].style.display = "none";
+  }
 
-}
+  // Remove active class from dots
+  for (let i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
 
-window.addEventListener("onload", show_slide(index));
+  // Display target slide
+  images[index].style.display = "block";
+  if (dots[index]) {
+    dots[index].className += " active";
+  }
+};
 
-// window.onload = function() {
-
-// 	document.getElementById('confirmation-title').textContent = '';
-
-// 	document.getElementById('contact-us-form').addEventListener('submit', function(event) {
-// 	event.preventDefault();
-
-// 		emailjs.sendForm('service_u9b5bpg', 'emplate_4bc1e0j', this)
-// 		.then(function() {
-// 			console.log('SUCCESS!');
-// 			$('.form-input').val('');
-// 			document.getElementById('confirmation-title').textContent = 'Thank You. I will be in touch with you';
-
-// 		}, function(error) {
-// 			console.log('FAILED...', error);
-// 			document.getElementById('confirmation-title').textContent = 'Sorry, something went wrong. Try Later.';
-// 		});
-// 	});
-// };
-
+window.addEventListener("load", () => {
+  show_slide(0);
+});
 
 /*----------- Dual-Row Scroll Slider Interpolation ----------*/
 document.addEventListener("DOMContentLoaded", () => {
@@ -180,7 +142,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (!section || !topRow || !bottomRow) return;
 
-  // Fallback for browsers that don't support CSS scroll timelines
   const supportsScrollTimeline = CSS.supports && CSS.supports("animation-timeline: view()");
 
   if (!supportsScrollTimeline) {
@@ -189,15 +150,12 @@ document.addEventListener("DOMContentLoaded", () => {
       const windowHeight = window.innerHeight;
       const totalScrollableDistance = rect.height - windowHeight;
 
-      // Calculate scroll progress through the 300vh section (0 to 1)
+      if (totalScrollableDistance <= 0) return;
+
       let progress = -rect.top / totalScrollableDistance;
       progress = Math.max(0, Math.min(1, progress));
 
-      // Interpolate horizontal translations
-      // Top Row: 0vw -> -75vw (fullscreen lock) -> -150vw
       const topX = 0 - progress * 150;
-
-      // Bottom Row: -150vw -> -75vw (fullscreen lock) -> 0vw
       const bottomX = -150 + progress * 150;
 
       topRow.style.transform = `translateX(${topX}vw)`;
@@ -212,5 +170,3 @@ document.addEventListener("DOMContentLoaded", () => {
     updateRowPositions();
   }
 });
-
-
