@@ -1151,7 +1151,7 @@ footer {
 @property --hero-bkg {
     syntax: "<color>";
     inherits: true;
-    initial-value: var(--color-bkg-01);
+    /*initial-value: var(--color-bkg-01);*/
 }
 
 @keyframes hero-bkg-cycle {
