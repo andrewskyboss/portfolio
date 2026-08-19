@@ -261,12 +261,15 @@ body.scrolled header.container-fluid {
 .header-row .header-logo .header-logo-link .half-name {
 	opacity: 0;
 	width: 0;
+	animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 	transition: var(--transition-default);
 }
 
 .header-row .header-logo .header-logo-link .half-surname {
 	opacity: 0;
 	width: 0;
+	animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	transition-delay: 2s;
 	transition: var(--transition-default);
 }
 
@@ -280,7 +283,21 @@ body.scrolled header.container-fluid {
 	opacity: 1;
 	width: 96px;
 	transition: var(--transition-default);
-	transition-delay: 1s;
+	/*transition-delay: 1s;*/
+}
+
+
+@keyframes slide-in-left {
+  0% {
+    -webkit-transform: translateX(-1000px);
+            transform: translateX(-1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 1;
+  }
 }
 
 .header-row div.header-tags.left {
