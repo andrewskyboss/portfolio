@@ -4,9 +4,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display+SC:wght@400;700&display=swap');
 
 :root {
-	--color-brand-1: #F71735;
+	--color-brand-1: #F03A47;
 	/*Orange Engineering*/
-	--color-brand-2: #F89400;
+	--color-brand-2: #E9724C;
 	/*Yellow Orange*/
 	--color-brand-3: #2D325A;
 	/*Dark Slate grey*/
@@ -36,13 +36,31 @@
 
 	--border-radius-default: 0px;
 	--border-radius-button: 4px;
-	--border-radius-container: 8px;
+	--border-radius-container: 4px;
 
 	--transition-default: all 0.8s ease;
 
 	--font-body: 'Raleway', sans-serif;
 	--font-title: "Lexend", sans-serif;
 	--font-menu: 'Oswald', sans-serif;
+}
+
+@media screen and (max-width: 1199px) {
+  :root {
+    --size-heading: 40px;
+	--size-title: 30px;
+	--size-subtitle: 27px;
+	--size-body: 16px;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  :root {
+    --size-heading: 35px;
+	--size-title: 25px;
+	--size-subtitle: 22px;
+	--size-body: 16px;
+  }
 }
 /*---------------- Body ----------------*/
 body {
@@ -1253,18 +1271,22 @@ footer {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding: 15px;
+  padding: 20px;
 }
 
 .hotel-tile-title {
   font-size: calc(var(--size-body) + 6px);
   font-weight: 600;
   margin-bottom: 10px;
+  text-align: left;
+  color: var(--color-brand-4);
 }
 
 .hotel-tile-desc {
   font-size: calc(var(--size-body) + 2px);
   opacity: 1;
+  text-align: left;
+  color: var(--color-white);
 }
 
 
