@@ -575,6 +575,7 @@ section div.images-links-3-col .images-links-3-col-single-col a span {
 	background-color: rgba(241, 241, 241, 0.8);
 	box-shadow: 0px 6px 12px 2px var(--color-gradient-black-15);
 	/*background: rgba( var(--color-brand-4), 0.6);*/
+	transition: var(--transition-default);
 }
 section div.images-links-6-col .images-links-2-col-single-col a .images-links-3-col-single-col-title,
 section div.images-links-3-col .images-links-3-col-single-col a .images-links-3-col-single-col-title {
@@ -608,7 +609,7 @@ section div.images-links-3-col .images-links-3-col-single-col a span .subtitle {
 	visibility: hidden;
 	height: 0;
 }
-section div.images-links-6-col .images-links-2-col-single-col a:hover span h3,
+/*section div.images-links-6-col .images-links-2-col-single-col a:hover span h3,
 section div.images-links-3-col .images-links-3-col-single-col a:hover span h3 {
 	color: var(--color-brand-1);
 	transition: var(--transition-default);
@@ -622,7 +623,7 @@ section div.images-links-3-col .images-links-3-col-single-col a:hover span .subt
 	transition: color 0.8s ease, visibility 0.8s ease;
 	animation: fade-in-bottom-animation 0.8s cubic-bezier(0.250, 0.450, 0.560, 0.950) both;
 	
-}
+}*/
 section .images-links-6-col .project-description {
 	position: absolute;
     display: flex;
@@ -636,6 +637,21 @@ section .images-links-6-col .project-description {
     height: 100%;
     background-color: var(--color-white);
     overflow: auto;
+    transform: translateX(100%);
+    transition: var(--transition-default);
+}
+
+section .images-links-6-col .images-links-2-col-single-col:hover a span {
+	height: 100%;
+	top: 0;
+	left: 0;
+	width: 50%;
+	transition: var(--transition-default);
+}
+
+section .images-links-6-col .images-links-2-col-single-col:hover .project-description {
+	transform: translateX(0);
+	transition: var(--transition-default);
 }
 
 section .images-links-6-col .description-container {
