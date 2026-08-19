@@ -264,10 +264,23 @@ body.scrolled header.container-fluid {
 	transition: var(--transition-default);
 }
 
+.header-row .header-logo .header-logo-link .half-surname {
+	opacity: 0;
+	width: 0;
+	transition: var(--transition-default);
+}
+
 .header-row .header-logo .header-logo-link:hover .half-name {
 	opacity: 1;
 	width: 96px;
 	transition: var(--transition-default);
+}
+
+.header-row .header-logo .header-logo-link:hover .surhalf-name {
+	opacity: 1;
+	width: 96px;
+	transition: var(--transition-default);
+	transition-delay: 1s;
 }
 
 .header-row div.header-tags.left {
