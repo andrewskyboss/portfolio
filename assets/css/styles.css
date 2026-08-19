@@ -680,7 +680,7 @@ section div.images-links-3-col .images-links-3-col-single-col a:hover span .subt
 section .images-links-6-col .project-description {
 	position: absolute;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     flex-direction: column;
     padding: 20px 30px;
