@@ -1225,9 +1225,9 @@ footer {
    Dual-Row Scroll-Driven Hotel Slider
    ========================================================================== */
 
-.hotel-scroll-section {
+/*.hotel-scroll-section {
   position: relative;
-  overflow: hidden; /* Clips row overflow outside viewport */
+  overflow: hidden; 
   padding: 2rem 0;
   width: 100%;
 }
@@ -1244,15 +1244,14 @@ footer {
   gap: 1.5rem;
   width: max-content;
   will-change: transform;
-  transform: translate3d(0, 0, 0); /* Direct GPU layer acceleration */
+  transform: translate3d(0, 0, 0);
 }
 
-/* Tile layout */
 .hotel-tile {
-  position: relative;
+  position: relative;*/
   /*width: 320px;
   height: 220px;*/
-  width: 20vw;
+  /*width: 20vw;
   height: 35vh;
   border-radius: var(--border-radius-container);
   overflow: hidden;
@@ -1300,10 +1299,157 @@ footer {
 	font-size: calc(var(--size-body) + 8px);
 	transform: translateY(-17px);
 	transition: var(--transition-default);
+}*/
+
+
+
+
+
+
+
+/* Base Desktop Styles (992px and up) */
+.hotel-scroll-section {
+  position: relative;
+  overflow: hidden;
+  padding: 2rem 0;
+  width: 100%;
 }
 
+.hotel-scroll-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+}
 
+.hotel-mobile-controls {
+  display: none; /* Hidden on Desktop */
+}
 
+.hotel-row {
+  display: flex;
+  gap: 1.5rem;
+  width: max-content;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+}
+
+.hotel-tile {
+  position: relative;
+  width: 20vw;
+  min-width: 280px;
+  height: 35vh;
+  min-height: 220px;
+  border-radius: var(--border-radius-container);
+  overflow: hidden;
+  flex-shrink: 0;
+  text-decoration: none;
+  color: var(--color-white);
+  background-color: var(--color-brand-4);
+  transition: transform 0.3s ease;
+}
+
+.hotel-tile:hover {
+  transform: scale(1.02);
+}
+
+.hotel-tile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.hotel-tile-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.85), transparent);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 15px;
+}
+
+.hotel-tile-title {
+  font-size: calc(var(--size-body) + 6px);
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.hotel-tile-desc {
+  font-size: calc(var(--size-body) + 2px);
+  opacity: 1;
+}
+
+/* -------------------------------------------------------------
+   MOBILE STYLES (under 991px)
+   ------------------------------------------------------------- */
+@media (max-width: 991px) {
+  /* Turn wrapper into a native horizontally swipable track */
+  .hotel-scroll-wrapper {
+    flex-direction: row;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch; /* Smooth inertia on iOS */
+    gap: 1rem;
+    padding: 1rem;
+    scrollbar-width: none; /* Hide scrollbar Firefox */
+  }
+
+  .hotel-scroll-wrapper::-webkit-scrollbar {
+    display: none; /* Hide scrollbar Chrome/Safari */
+  }
+
+  /* Inline the rows into continuous items */
+  .hotel-row {
+    display: contents; 
+  }
+
+  /* Make each tile full screen width (1 slide per view) */
+  .hotel-tile {
+    width: calc(100vw - 2rem); /* Full width minus side paddings */
+    min-width: calc(100vw - 2rem);
+    height: 50vh;
+    min-height: 300px;
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+  }
+
+  /* Show navigation buttons */
+  .hotel-mobile-controls {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    padding: 0 0.5rem;
+    pointer-events: none; /* Allows touch through to tiles */
+    z-index: 10;
+  }
+
+  .hotel-nav-btn {
+    pointer-events: auto;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.65);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    font-size: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    backdrop-filter: blur(4px);
+  }
+
+  .hotel-nav-btn:active {
+    background: rgba(0, 0, 0, 0.9);
+  }
+}
 
 
 
