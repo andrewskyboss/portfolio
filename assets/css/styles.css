@@ -230,7 +230,7 @@ header div.header-row {
 }
 header div.navbar-container {
 	display: flex;
-	justify-content: center;
+	justify-content: flex-end;
 	align-items: center;
 	width: 60%;
 	position: relative;
