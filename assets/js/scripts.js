@@ -172,58 +172,172 @@ window.addEventListener("onload", show_slide(index));
 // };
 
 
+// document.addEventListener("DOMContentLoaded", () => {
+//   const section = document.querySelector(".hotel-scroll-section");
+//   const topRow = document.querySelector(".hotel-row-top");
+//   const bottomRow = document.querySelector(".hotel-row-bottom");
+
+//   if (!section || !topRow || !bottomRow) return;
+
+//   let ticking = false;
+
+//   const animateOnScroll = () => {
+//     const rect = section.getBoundingClientRect();
+//     const windowHeight = window.innerHeight;
+//     const windowWidth = window.innerWidth;
+
+//     // Total vertical distance over which the section is visible in the viewport
+//     const totalVisibleDistance = rect.height + windowHeight;
+
+//     if (totalVisibleDistance <= 0) return;
+
+//     // Calculate progress (0 when top enters bottom of viewport -> 1 when bottom leaves top)
+//     let progress = (windowHeight - rect.top) / totalVisibleDistance;
+//     progress = Math.max(0, Math.min(1, progress));
+
+//     // TOP ROW: Start at +viewportWidth (off right), end at -topRow.scrollWidth (off left)
+//     const topStart = windowWidth;
+//     const topEnd = -topRow.scrollWidth;
+//     const topX = topStart + progress * (topEnd - topStart);
+
+//     // BOTTOM ROW: Start at -bottomRow.scrollWidth (off left), end at +viewportWidth (off right)
+//     const bottomStart = -bottomRow.scrollWidth;
+//     const bottomEnd = windowWidth;
+//     const bottomX = bottomStart + progress * (bottomEnd - bottomStart);
+
+//     // Hardware-accelerated 3D translations
+//     topRow.style.transform = `translate3d(${topX}px, 0, 0)`;
+//     bottomRow.style.transform = `translate3d(${bottomX}px, 0, 0)`;
+
+//     ticking = false;
+//   };
+
+//   const onScroll = () => {
+//     if (!ticking) {
+//       requestAnimationFrame(animateOnScroll);
+//       ticking = true;
+//     }
+//   };
+
+//   window.addEventListener("scroll", onScroll, { passive: true });
+//   window.addEventListener("resize", animateOnScroll, { passive: true });
+
+//   // Initial calculation on page load
+//   animateOnScroll();
+// });
+
 document.addEventListener("DOMContentLoaded", () => {
   const section = document.querySelector(".hotel-scroll-section");
+  const wrapper = document.querySelector(".hotel-scroll-wrapper");
   const topRow = document.querySelector(".hotel-row-top");
   const bottomRow = document.querySelector(".hotel-row-bottom");
+  const prevBtn = document.querySelector(".hotel-nav-btn.prev-btn");
+  const nextBtn = document.querySelector(".hotel-nav-btn.next-btn");
 
   if (!section || !topRow || !bottomRow) return;
 
-  let ticking = false;
+  // Desktop Scroll Variables
+  let currentTopX = 0;
+  let targetTopX = 0;
+  let currentBottomX = 0;
+  let targetBottomX = 0;
+  const ease = 0.08;
+  let isAnimating = false;
+  let isMobile = window.innerWidth < 992;
 
-  const animateOnScroll = () => {
+  // -------------------------------------------------------------
+  // DESKTOP: Scroll-Driven Lerp Motion
+  // -------------------------------------------------------------
+  const calculateTargets = () => {
+    if (isMobile) return;
+
     const rect = section.getBoundingClientRect();
     const windowHeight = window.innerHeight;
     const windowWidth = window.innerWidth;
-
-    // Total vertical distance over which the section is visible in the viewport
     const totalVisibleDistance = rect.height + windowHeight;
 
     if (totalVisibleDistance <= 0) return;
 
-    // Calculate progress (0 when top enters bottom of viewport -> 1 when bottom leaves top)
     let progress = (windowHeight - rect.top) / totalVisibleDistance;
     progress = Math.max(0, Math.min(1, progress));
 
-    // TOP ROW: Start at +viewportWidth (off right), end at -topRow.scrollWidth (off left)
     const topStart = windowWidth;
     const topEnd = -topRow.scrollWidth;
-    const topX = topStart + progress * (topEnd - topStart);
+    targetTopX = topStart + progress * (topEnd - topStart);
 
-    // BOTTOM ROW: Start at -bottomRow.scrollWidth (off left), end at +viewportWidth (off right)
     const bottomStart = -bottomRow.scrollWidth;
     const bottomEnd = windowWidth;
-    const bottomX = bottomStart + progress * (bottomEnd - bottomStart);
+    targetBottomX = bottomStart + progress * (bottomEnd - bottomStart);
 
-    // Hardware-accelerated 3D translations
-    topRow.style.transform = `translate3d(${topX}px, 0, 0)`;
-    bottomRow.style.transform = `translate3d(${bottomX}px, 0, 0)`;
-
-    ticking = false;
-  };
-
-  const onScroll = () => {
-    if (!ticking) {
-      requestAnimationFrame(animateOnScroll);
-      ticking = true;
+    if (!isAnimating) {
+      isAnimating = true;
+      requestAnimationFrame(render);
     }
   };
 
-  window.addEventListener("scroll", onScroll, { passive: true });
-  window.addEventListener("resize", animateOnScroll, { passive: true });
+  const render = () => {
+    if (isMobile) return;
 
-  // Initial calculation on page load
-  animateOnScroll();
+    currentTopX += (targetTopX - currentTopX) * ease;
+    currentBottomX += (targetBottomX - currentBottomX) * ease;
+
+    topRow.style.transform = `translate3d(${currentTopX.toFixed(2)}px, 0, 0)`;
+    bottomRow.style.transform = `translate3d(${currentBottomX.toFixed(2)}px, 0, 0)`;
+
+    const topDelta = Math.abs(targetTopX - currentTopX);
+    const bottomDelta = Math.abs(targetBottomX - currentBottomX);
+
+    if (topDelta > 0.1 || bottomDelta > 0.1) {
+      requestAnimationFrame(render);
+    } else {
+      isAnimating = false;
+    }
+  };
+
+  // -------------------------------------------------------------
+  // MOBILE: Button Navigation for Touch Slider
+  // -------------------------------------------------------------
+  const scrollMobile = (direction) => {
+    const tile = wrapper.querySelector(".hotel-tile");
+    if (!tile) return;
+    
+    // Width of one slide including CSS flex gap (16px)
+    const slideWidth = tile.offsetWidth + 16; 
+    const scrollAmount = direction === "next" ? slideWidth : -slideWidth;
+
+    wrapper.scrollBy({ left: scrollAmount, behavior: "smooth" });
+  };
+
+  if (prevBtn) prevBtn.addEventListener("click", () => scrollMobile("prev"));
+  if (nextBtn) nextBtn.addEventListener("click", () => scrollMobile("next"));
+
+  // -------------------------------------------------------------
+  // RESIZE & BREAKPOINT STATE MANAGEMENT
+  // -------------------------------------------------------------
+  const handleResize = () => {
+    const wasMobile = isMobile;
+    isMobile = window.innerWidth < 992;
+
+    if (isMobile) {
+      // Reset JS inline transforms on mobile so CSS snap flex layout takes over
+      topRow.style.transform = "";
+      bottomRow.style.transform = "";
+      isAnimating = false;
+    } else {
+      if (wasMobile !== isMobile) {
+        wrapper.scrollLeft = 0; // Reset scroll container on desktop switch
+      }
+      calculateTargets();
+    }
+  };
+
+  window.addEventListener("scroll", calculateTargets, { passive: true });
+  window.addEventListener("resize", handleResize, { passive: true });
+
+  // Initial setup
+  handleResize();
 });
+
+
 
 
