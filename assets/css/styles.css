@@ -608,7 +608,7 @@ section .images-links-6-col .project-description {
     flex-direction: column;
     padding: 20px;
     top: 0;
-    right: 0;
+    right: 15px;
     width: 50%;
     height: 100%;
     background-color: var(--color-white);
