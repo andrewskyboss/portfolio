@@ -1245,13 +1245,13 @@ footer {
   width: max-content;
   will-change: transform;
   transform: translate3d(0, 0, 0);
-}
+}*/
 
 .hotel-tile {
-  position: relative;*/
+  position: relative;
   /*width: 320px;
   height: 220px;*/
-  /*width: 20vw;
+  width: 20vw;
   height: 35vh;
   border-radius: var(--border-radius-container);
   overflow: hidden;
@@ -1299,7 +1299,7 @@ footer {
 	font-size: calc(var(--size-body) + 8px);
 	transform: translateY(-17px);
 	transition: var(--transition-default);
-}*/
+}
 
 
 
@@ -1334,7 +1334,7 @@ footer {
   transform: translate3d(0, 0, 0);
 }
 
-.hotel-tile {
+/*.hotel-tile {
   position: relative;
   width: 20vw;
   min-width: 280px;
@@ -1347,7 +1347,7 @@ footer {
   color: var(--color-white);
   background-color: var(--color-brand-4);
   transition: transform 0.3s ease;
-}
+}*/
 
 .hotel-tile:hover {
   transform: scale(1.02);
@@ -1360,7 +1360,7 @@ footer {
   display: block;
 }
 
-.hotel-tile-overlay {
+/*.hotel-tile-overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(to top, rgba(0, 0, 0, 0.85), transparent);
@@ -1368,9 +1368,9 @@ footer {
   flex-direction: column;
   justify-content: flex-end;
   padding: 15px;
-}
+}*/
 
-.hotel-tile-title {
+/*.hotel-tile-title {
   font-size: calc(var(--size-body) + 6px);
   font-weight: 600;
   margin-bottom: 10px;
@@ -1379,7 +1379,7 @@ footer {
 .hotel-tile-desc {
   font-size: calc(var(--size-body) + 2px);
   opacity: 1;
-}
+}*/
 
 /* -------------------------------------------------------------
    MOBILE STYLES (under 991px)
