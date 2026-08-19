@@ -220,7 +220,7 @@ section div.row {
 header div.header-row {
 	display: flex;
 	height: 80px;
-	justify-content: center;
+	justify-content: flex-start;
 	align-items: center;
 	width: 20%;
 	position: relative;
@@ -255,7 +255,7 @@ body.scrolled header.container-fluid {
 
 .header-row .header-logo .header-logo-link .full-name {
 	display: flex;
-	gap: 5px;
+	/*gap: 5px;*/
 }
 
 .header-row .header-logo .header-logo-link .half-name {
@@ -266,7 +266,7 @@ body.scrolled header.container-fluid {
 
 .header-row .header-logo .header-logo-link:hover .half-name {
 	opacity: 1;
-	width: auto;
+	width: 96px;
 	transition: var(--transition-default);
 }
 
