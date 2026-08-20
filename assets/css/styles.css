@@ -222,7 +222,7 @@ header.container-fluid {
 	flex-wrap: wrap;
 	justify-content: center;
 	align-items: center;
-	min-height: 70vh;
+	min-height: 40vh;
 	z-index: 10;
 	background-color: var(--color-white);
 }
@@ -634,6 +634,7 @@ section div.images-links-3-col .images-links-3-col-single-col {
 	justify-items: center;
 	position: relative;
 	overflow: hidden;
+	box-shadow: var(--box-shadow-block);
 	animation: fade-in-bottom-animation 0.8s cubic-bezier(0.250, 0.450, 0.560, 0.950) both;
 }
 section div.images-links-3-col .images-links-3-col-single-col.videos {
