@@ -1388,14 +1388,14 @@ footer {
 
 .hotel-tile:hover .hotel-tile-title {
 	font-size: calc(var(--size-body) + 10px);
-	transform: translateY(-55px);
+	transform: translateY(-85px);
 	color: var(--color-brand-1);
 	transition: var(--transition-default);
 }
 
 .hotel-tile:hover .hotel-tile-overlay {
 	/*background: transparent;*/
-	background: linear-gradient(to top, rgba(241, 241, 241, 0.15), rgba(241, 241, 241, 0.75));
+	background: linear-gradient(to top, rgba(241, 241, 241, 0.15), rgba(241, 241, 241, 0.95));
 	transition: var(--transition-default);
 }
 
