@@ -1395,7 +1395,7 @@ footer {
 
 .hotel-tile:hover .hotel-tile-overlay {
 	/*background: transparent;*/
-	background: linear-gradient(to top, rgba(241, 241, 241, 0.15), rgba(241, 241, 241, 0.95));
+	background: linear-gradient(to top, rgba(241, 241, 241, 0.15), rgba(24, 24, 24, 0.95));
 	transition: var(--transition-default);
 }
 
