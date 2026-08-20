@@ -731,7 +731,7 @@ section .images-links-3-col .images-links-3-col-single-col a .card-description {
 	overflow: hidden;
 	background-color: var(--color-white);
 	display: flex;
-	justify-content: center;
+	justify-content: flex-start;
 	align-items: center;
 	flex-direction: column;
 	transition: var(--transition-default);
@@ -739,6 +739,7 @@ section .images-links-3-col .images-links-3-col-single-col a .card-description {
 
 section .images-links-3-col .images-links-3-col-single-col a:hover .card-description {
 	height: 80%;
+	padding: 20px;
 }
 /*section div.images-links-6-col .images-links-2-col-single-col a:hover span h3,
 section div.images-links-3-col .images-links-3-col-single-col a:hover span h3 {
