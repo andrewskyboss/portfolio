@@ -734,11 +734,12 @@ section .images-links-3-col .images-links-3-col-single-col a .card-description {
 	justify-content: flex-start;
 	align-items: center;
 	flex-direction: column;
+	padding: 0 20px;
 	transition: var(--transition-default);
 }
 
 section .images-links-3-col .images-links-3-col-single-col a:hover .card-description {
-	height: 80%;
+	height: 100%;
 	padding: 20px;
 }
 /*section div.images-links-6-col .images-links-2-col-single-col a:hover span h3,
