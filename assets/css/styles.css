@@ -211,6 +211,8 @@ hr {
 header.container-fluid {
 	background-color: var(--color-white);
 	border-bottom: 1px solid var(--color-brand-4);
+	animation: 20s linear infinite hero-bkg-cycle!important;
+	animation-delay: var(--bg-cycle-delay,0s)!important;
 }
 
 .section-module {
@@ -234,7 +236,7 @@ header.container-fluid {
 
 .section-module.top-section {
 	animation: 20s linear infinite hero-bkg-cycle!important;
-    animation-delay: var(--bg-cycle-delay,0s)!important;
+	animation-delay: var(--bg-cycle-delay,0s)!important;
 }
 
 section div.row {
@@ -525,7 +527,7 @@ header .navbar-container .main-menu.visible {
 .main-content {
 	padding-left: 5%!important;
 	padding-right: 5%!important;
-	margin-top: 130px;
+	margin-top: 80px;
 }
 .main-content-title {
 	float: left;
