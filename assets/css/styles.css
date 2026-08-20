@@ -730,13 +730,15 @@ section .images-links-3-col .images-links-3-col-single-col a .card-description {
 	width: 100%;
 	height: 0%;
 	overflow: hidden;
-	background-color: var(--color-white);
+	/*background-color: var(--color-white);*/
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
 	flex-direction: column;
 	text-align: center;
 	padding: 0 20px;
+	animation: 20s linear infinite hero-bkg-cycle!important;
+	animation-delay: var(--bg-cycle-delay,0s)!important;
 	transition: var(--transition-default);
 }
 
