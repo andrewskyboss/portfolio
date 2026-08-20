@@ -1446,12 +1446,6 @@ footer {
 	transition: var(--transition-default);
 }
 
-
-
-
-
-
-
 /* Base Desktop Styles (992px and up) */
 .hotel-scroll-section {
 	position: relative;
@@ -1463,7 +1457,7 @@ footer {
 .hotel-scroll-wrapper {
 	display: flex;
 	flex-direction: column;
-	gap: 2rem;
+	gap: 15px;
 	width: 100%;
 }
 
@@ -1473,7 +1467,7 @@ footer {
 
 .hotel-row {
 	display: flex;
-	gap: 1.5rem;
+	gap: 15px;
 	width: max-content;
 	will-change: transform;
 	transform: translate3d(0, 0, 0);
