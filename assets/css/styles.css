@@ -969,7 +969,7 @@ form .form-input.textarea {
 
 .section-title p {
 	text-align: center;
-	width: 90%;
+	/*width: 90%;*/
 	/*max-width: 50vw;*/
 	font-size: calc(var(--size-body) + 5px);
 }
