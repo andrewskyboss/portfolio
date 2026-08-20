@@ -735,6 +735,7 @@ section .images-links-3-col .images-links-3-col-single-col a .card-description {
 	justify-content: flex-start;
 	align-items: center;
 	flex-direction: column;
+	text-align: center;
 	padding: 0 20px;
 	transition: var(--transition-default);
 }
