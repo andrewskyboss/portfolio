@@ -1340,56 +1340,56 @@ footer {
 }*/
 
 .hotel-tile {
-  position: relative;
-  /*width: 320px;
-  height: 220px;*/
-  width: 20vw;
-  height: 35vh;
-  border-radius: var(--border-radius-container);
-  overflow: hidden;
-  flex-shrink: 0;
-  text-decoration: none;
-  color: var(--color-white);
-  background-color: var(--color-brand-4);
-  box-shadow: var(--box-shadow-block);
-  transition: var(--transition-default);
+	position: relative;
+	/*width: 320px;
+	height: 220px;*/
+	width: 20vw;
+	height: 35vh;
+	border-radius: var(--border-radius-container);
+	overflow: hidden;
+	flex-shrink: 0;
+	text-decoration: none;
+	color: var(--color-white);
+	background-color: var(--color-brand-4);
+	box-shadow: var(--box-shadow-block);
+	transition: var(--transition-default);
 }
 
 .hotel-tile img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
 }
 
 .hotel-tile-overlay {
-  position: absolute;
-  inset: 0;
-  /*background: linear-gradient(to top, rgba(0, 0, 0, 0.75), transparent);*/
-  background: var(--color-gradient-white-08);
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 20px;
-  transition: var(--transition-default);
+	position: absolute;
+	inset: 0;
+	/*background: linear-gradient(to top, rgba(0, 0, 0, 0.75), transparent);*/
+	background: var(--color-gradient-white-08);
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	padding: 20px;
+	transition: var(--transition-default);
 }
 
 .hotel-tile-title {
-  font-size: calc(var(--size-body) + 2px);
-  font-weight: 400;
-  margin-bottom: 10px;
-  text-align: left;
-  color: var(--color-brand-5);
-  transition: var(--transition-default);
+	font-size: calc(var(--size-body) + 2px);
+	font-weight: 400;
+	margin-bottom: 10px;
+	text-align: left;
+	color: var(--color-brand-5);
+	transition: var(--transition-default);
 }
 
 .hotel-tile-desc {
-  font-size: calc(var(--size-body) + 0px);
-  font-weight: 400;
-  opacity: 1;
-  text-align: left;
-  color: var(--color-brand-3);
-  transition: var(--transition-default);
+	font-size: 0;
+	font-weight: 400;
+	opacity: 0;
+	text-align: left;
+	color: var(--color-brand-4);
+	transition: var(--transition-default);
 }
 
 .hotel-tile:hover .hotel-tile-title {
@@ -1400,9 +1400,11 @@ footer {
 }
 
 .hotel-tile:hover .hotel-tile-desc {
-  color: var(--color-brand-4);
-  font-weight: 600;
-  transition: var(--transition-default);
+	font-size: var(--size-body);
+	opacity: 1;
+	color: var(--color-brand-4);
+	font-weight: 600;
+	transition: var(--transition-default);
 }
 
 .hotel-tile:hover .hotel-tile-overlay {
@@ -1419,29 +1421,29 @@ footer {
 
 /* Base Desktop Styles (992px and up) */
 .hotel-scroll-section {
-  position: relative;
-  overflow: hidden;
-  padding: 2rem 0;
-  width: 100%;
+	position: relative;
+	overflow: hidden;
+	padding: 2rem 0;
+	width: 100%;
 }
 
 .hotel-scroll-wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+	width: 100%;
 }
 
 .hotel-mobile-controls {
-  display: none; /* Hidden on Desktop */
+	display: none; /* Hidden on Desktop */
 }
 
 .hotel-row {
-  display: flex;
-  gap: 1.5rem;
-  width: max-content;
-  will-change: transform;
-  transform: translate3d(0, 0, 0);
+	display: flex;
+	gap: 1.5rem;
+	width: max-content;
+	will-change: transform;
+	transform: translate3d(0, 0, 0);
 }
 
 /*.hotel-tile {
