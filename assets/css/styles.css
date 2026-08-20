@@ -1381,9 +1381,11 @@ footer {
 
 .hotel-tile-desc {
   font-size: calc(var(--size-body) + 0px);
+  font-weight: 400;
   opacity: 1;
   text-align: left;
   color: var(--color-brand-3);
+  transition: var(--transition-default);
 }
 
 .hotel-tile:hover .hotel-tile-title {
@@ -1391,6 +1393,12 @@ footer {
 	transform: translateY(-85px);
 	color: var(--color-brand-4);
 	transition: var(--transition-default);
+}
+
+.hotel-tile:hover .hotel-tile-desc {
+  color: var(--color-brand-4);
+  font-weight: 300;
+  transition: var(--transition-default);
 }
 
 .hotel-tile:hover .hotel-tile-overlay {
