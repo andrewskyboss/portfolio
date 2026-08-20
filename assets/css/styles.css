@@ -1360,7 +1360,7 @@ footer {
 .hotel-tile-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.75), transparent);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -1368,8 +1368,8 @@ footer {
 }
 
 .hotel-tile-title {
-  font-size: calc(var(--size-body) + 6px);
-  font-weight: 600;
+  font-size: calc(var(--size-body) + 2px);
+  font-weight: 400;
   margin-bottom: 10px;
   text-align: left;
   color: var(--color-brand-4);
@@ -1377,15 +1377,15 @@ footer {
 }
 
 .hotel-tile-desc {
-  font-size: calc(var(--size-body) + 2px);
+  font-size: calc(var(--size-body) + 0px);
   opacity: 1;
   text-align: left;
   color: var(--color-white);
 }
 
 .hotel-tile:hover .hotel-tile-title {
-	font-size: calc(var(--size-body) + 8px);
-	transform: translateY(-17px);
+	font-size: calc(var(--size-body) + 4px);
+	transform: translateY(-15px);
 	transition: var(--transition-default);
 }
 
