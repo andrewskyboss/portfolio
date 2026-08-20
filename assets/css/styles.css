@@ -776,7 +776,7 @@ section .images-links-6-col .project-description {
     transition: var(--transition-default);
 }
 
-section .images-links-6-col .project-description p {
+section .images-links-3-col .images-links-3-col-single-col a .card-description p {
 	color: var(--color-black);
 }
 
