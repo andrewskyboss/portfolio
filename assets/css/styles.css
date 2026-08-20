@@ -26,6 +26,7 @@
 
 	--color-gradient-white:  rgba(241, 241, 241, 0.6);
 	--color-gradient-white-08: rgba(241, 241, 241, 0.8);
+	--color-gradient-white-09: rgba(241, 241, 241, 0.92);
 	--color-gradient-black:  rgba(0, 0, 0, 0.6);
 	--color-gradient-black-15: rgb(0 0 0 / 15%);
 	--color-gradient-black-20: rgb(0 0 0 / 20%);
@@ -34,9 +35,9 @@
 	--box-shadow-block: 1px 1px 10px var(--color-gradient-black-15);
 
 
-	--box-shadow-main: 4px 10px 21px -10px #254E73;
-	--box-shadow-bkg: 1px 1px 25px -15px #254E73;
-	--box-shadow-header: 4px 10px 21px -21px #254E73;
+	--box-shadow-main: 4px 10px 21px -10px var(--color-black);
+	--box-shadow-bkg: 1px 1px 25px -15px var(--color-black);
+	--box-shadow-header: 4px 10px 21px -21px var(--color-black);
 
 	--border-default: 1px solid var(--color-brand-1)!important;
     --border-white: 1px solid var(--color-white);
@@ -96,20 +97,20 @@ h1 {
 	font-family: var(--font-title);
 	font-weight: 400;
 	font-size: 40px;
-	color: var(--color-brand-5);
+	color: var(--color-black);
 	animation: fade-in-bottom-animation 0.8s cubic-bezier(0.250, 0.450, 0.560, 0.950) both;
 }
 h2 {
 	font-family: var(--font-title);
 	font-weight: 400;
 	font-size: 35px;
-	color: var(--color-brand-3);
+	color: var(--color-black);
 }
 h3 {
 	font-family: var(--font-title);
 	font-weight: 300;
 	font-size: 30px;
-	color: var(--color-brand-1);
+	color: var(--color-brand-3);
 }
 h4 {
 	font-family: var(--font-title);
@@ -1427,7 +1428,7 @@ footer {
 
 .hotel-tile:hover .hotel-tile-title {
 	font-size: calc(var(--size-body) + 10px);
-	transform: translateY(-85px);
+	transform: translateY(-55px);
 	color: var(--color-brand-4);
 	transition: var(--transition-default);
 }
