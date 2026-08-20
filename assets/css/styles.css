@@ -1464,6 +1464,13 @@ footer {
   height: 100%;
   object-fit: cover;
   display: block;
+  filter: grayscale(1);
+  transition: var(--transition-default);
+}
+
+.hotel-tile:hover img {
+	filter: grayscale(0);
+	transition: var(--transition-default);
 }
 
 /*.hotel-tile-overlay {
