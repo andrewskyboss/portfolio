@@ -601,6 +601,7 @@ section div.images-links-3-col .images-links-3-col-single-col {
 	height: auto;
 	min-height: 50vh;
 	width: 100%;
+	padding: 0px;
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
