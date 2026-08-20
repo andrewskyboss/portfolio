@@ -251,7 +251,7 @@ header div.header-row {
 	position: relative;
 	z-index: 1000;
 	/*border-bottom: 1px solid var(--color-brand-4);*/
-	background-color: var(--color-white);
+	/*background-color: var(--color-white);*/
 }
 header div.navbar-container {
 	display: flex;
@@ -294,7 +294,7 @@ header .header-container {
 
 .header-row .header-logo .header-logo-link .first-letter,
 .header-row .header-logo .header-logo-link .second-letter {
-	background-color: var(--color-white);
+	/*background-color: var(--color-white);*/
 	z-index: 10;
 }
 
@@ -507,10 +507,10 @@ header .header-container {
 }
 header div.navbar-container div.main-menu {
 	/*transform: translateY(-200%);
-	transition: transform 2s ease;
-*/	margin-top: 0px;
+	transition: transform 2s ease;*/	
+	margin-top: 0px;
 	height: fit-content;
-	background-color: var(--color-white);
+	/*background-color: var(--color-white);*/
 	/*box-shadow: 0px 6px 12px 2px var(--color-gradient-black-15);*/
 }
 
