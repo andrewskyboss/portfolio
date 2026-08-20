@@ -695,8 +695,15 @@ section div.images-links-3-col .images-links-3-col-single-col a .images-links-3-
 	flex-direction: column;
 	justify-content: center;
 	border-radius: var(--border-radius-default) var(--border-radius-default) var(--border-radius-container) var(--border-radius-container);
-	background-color: var(--color-white);
+	/*background-color: var(--color-white);*/
+	background: var(--color-gradient-white-08);
 	/*background: rgba( var(--color-brand-4), 0.6);*/
+	transition: var(--transition-default);
+}
+
+section div.images-links-6-col .images-links-2-col-single-col a:hover .images-links-3-col-single-col-title,
+section div.images-links-3-col .images-links-3-col-single-col a:hover .images-links-3-col-single-col-title {
+	height: 100%;
 }
 section div.images-links-6-col .images-links-2-col-single-col a span h3,
 section div.images-links-3-col .images-links-3-col-single-col a span h3 {
@@ -715,6 +722,23 @@ section div.images-links-3-col .images-links-3-col-single-col a span .subtitle {
 	text-align: center;
 	visibility: hidden;
 	height: 0;
+}
+
+section .images-links-3-col .images-links-3-col-single-col a .card-description {
+	position: relative;
+	width: 100%;
+	height: 0%;
+	overflow: hidden;
+	background-color: var(--color-white);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	transition: var(--transition-default);
+}
+
+section .images-links-3-col .images-links-3-col-single-col a:hover .card-description {
+	height: 80%;
 }
 /*section div.images-links-6-col .images-links-2-col-single-col a:hover span h3,
 section div.images-links-3-col .images-links-3-col-single-col a:hover span h3 {
