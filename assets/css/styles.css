@@ -255,7 +255,7 @@ header div.navbar-container {
 	display: flex;
 	justify-content: flex-end;
 	align-items: center;
-	width: 60%;
+	width: 80%;
 	position: relative;
 	z-index: 10;
 
@@ -263,6 +263,14 @@ header div.navbar-container {
 body.scrolled header.container-fluid {
 	/*background-color: var(--color-white);*/
 	box-shadow: var(--box-shadow-header);
+}
+
+header .header-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	max-width: var(--container-max-width);
 }
 .header-row .header-logo .header-logo-link {
 	font-size: calc(var(--size-title) - 10px);
