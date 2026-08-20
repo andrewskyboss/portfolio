@@ -30,6 +30,9 @@
 	--color-gradient-black-15: rgb(0 0 0 / 15%);
 	--color-gradient-black-20: rgb(0 0 0 / 20%);
 
+	--box-shadow-header: 0px 6px 12px 2px var(--color-gradient-black-15);
+	--box-shadow-block: 1px 1px 10px var(--color-gradient-black-15);
+
 	--size-heading: 50px;
 	--size-title: 40px;
 	--size-subtitle: 30px;
@@ -136,7 +139,7 @@ hr {
 	margin-right: 5%;
     margin-bottom: 30px;
     border-radius: var(--border-radius-container);
-    box-shadow: 1px 1px 10px var(--color-gradient-black-20);
+    box-shadow: var(--box-shadow-block);
 	/* background-image: url("../imgs/img-04.jpg");
 	background-attachment: fixed;
 	background-position: center;
@@ -240,7 +243,7 @@ header div.navbar-container {
 }
 body.scrolled header.container-fluid {
 	/*background-color: var(--color-white);*/
-	box-shadow: 0px 6px 12px 2px var(--color-gradient-black-15);
+	box-shadow: var(--box-shadow-header);
 }
 .header-row .header-logo .header-logo-link {
 	font-size: calc(var(--size-title) - 10px);
@@ -486,7 +489,7 @@ header div.navbar-container div.main-menu {
 	transform: translateY(-200%);
 	transition: transform 2s ease;
 }*/
-header > div.navbar-container > div.main-menu.visible {
+header .navbar-container .main-menu.visible {
 	transform: translateY(0%);
 	transition: transform 1s ease;
 }
@@ -518,11 +521,11 @@ header > div.navbar-container > div.main-menu.visible {
 	margin-left: 0;
 	width: 100%;
 }
-section  .work-history > div > .work-history-items {
+section  .work-history .work-history-items {
 	width: 80%;
 	margin-left: 10%;
 }
-section  .work-history > div > .work-history-items .work-history-item .work-history-item--trigger {
+section  .work-history .work-history-items .work-history-item .work-history-item--trigger {
 	display: flex;
 	flex-wrap: wrap;
 	padding: 20px;
@@ -531,13 +534,13 @@ section  .work-history > div > .work-history-items .work-history-item .work-hist
     margin-bottom: 20px;
     border-radius: var(--border-radius-container);
 }
-section  .work-history > div > .work-history-items .work-history-item:nth-child(odd) .work-history-item--trigger {
+section  .work-history .work-history-items .work-history-item:nth-child(odd) .work-history-item--trigger {
 	background-color: var(--color-brand-4);
 }
-section  .work-history > div > .work-history-items .work-history-item:nth-child(even) .work-history-item--trigger {
+section  .work-history .work-history-items .work-history-item:nth-child(even) .work-history-item--trigger {
 	background-color: transparent;
 }
-section  .work-history > div > .work-history-items .work-history-item .work-history-item--trigger::after {
+section  .work-history .work-history-items .work-history-item .work-history-item--trigger::after {
 	content: '+';
 	position: absolute;
 	right: 20px;
@@ -552,19 +555,19 @@ section  .work-history > div > .work-history-items .work-history-item .work-hist
 	transform: scale(1);
 	transition: transform 0.8s ease, color 0.8s ease;
 }
-section  .work-history > div > .work-history-items .work-history-item .work-history-item--trigger[aria-expanded="true"]::after {
+section  .work-history .work-history-items .work-history-item .work-history-item--trigger[aria-expanded="true"]::after {
 	content: '-';
 }
-section  .work-history > div > .work-history-items .work-history-item .work-history-item--trigger[aria-expanded="true"] + .work-history-item--panel {
+section  .work-history .work-history-items .work-history-item .work-history-item--trigger[aria-expanded="true"] + .work-history-item--panel {
 	height: auto;
     opacity: 1;
     padding: 20px 20px 20px 10%;
 }
-section  .work-history > div > .work-history-items .work-history-item .work-history-item--trigger:hover::after {
+section  .work-history .work-history-items .work-history-item .work-history-item--trigger:hover::after {
 	transform: scale(1.8);
 	color: var(--color-brand-2);
 }
-section  .work-history > div > .work-history-items .work-history-item .work-history-item--panel {
+section  .work-history .work-history-items .work-history-item .work-history-item--panel {
 	height: 0;
     opacity: 0;
     overflow: hidden;
@@ -574,13 +577,13 @@ section  .work-history > div > .work-history-items .work-history-item .work-hist
     flex-direction: column;
 
 }
-section  .work-history > div > .work-history-items .work-history-item .work-history-item--trigger .work-dates {
+section  .work-history .work-history-items .work-history-item .work-history-item--trigger .work-dates {
 	display: flex;
 	justify-content: center;
 	flex-direction: column;
 	align-items: center;
 }
-section  .work-history > div > .work-history-items .work-history-item .work-history-item--trigger .work-content {
+section  .work-history .work-history-items .work-history-item .work-history-item--trigger .work-content {
 	display: flex;
 	justify-content: flex-start;
 	flex-direction: column;
@@ -1348,6 +1351,7 @@ footer {
   text-decoration: none;
   color: var(--color-white);
   background-color: var(--color-brand-4);
+  box-shadow: var(--box-shadow-block);
   transition: var(--transition-default);
 }
 
