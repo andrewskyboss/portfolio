@@ -33,6 +33,21 @@
 	--box-shadow-header: 0px 6px 12px 2px var(--color-gradient-black-15);
 	--box-shadow-block: 1px 1px 10px var(--color-gradient-black-15);
 
+
+	--box-shadow-main: 4px 10px 21px -10px #254E73;
+	--box-shadow-bkg: 1px 1px 25px -15px #254E73;
+	--box-shadow-header: 4px 10px 21px -21px #254E73;
+
+	--border-default: 1px solid var(--color-brand-1)!important;
+    --border-white: 1px solid var(--color-white);
+    --border-transparent: 1px solid transparent;
+    --border-brand-1: 1px solid var(--color-brand-1);
+
+    --box-shadow-pre-hover-brand-1: inset 0px 0px 0 0 var(--color-brand-1);
+    --box-shadow-hover-brand-1: inset 0px -200px 0 0 var(--color-brand-1);
+
+    --container-max-width: 1280px;
+
 	--size-heading: 50px;
 	--size-title: 40px;
 	--size-subtitle: 30px;
@@ -47,6 +62,10 @@
 	--font-body: 'Raleway', sans-serif;
 	--font-title: "Lexend", sans-serif;
 	--font-menu: 'Oswald', sans-serif;
+
+	--header-background-image: url(https://res.windsurfercrs.com/CrsMedia/P18157//img.jpg);
+    --body-background-image: url(https://res.windsurfercrs.com/CrsMedia/P18157//bkg-img-03.jpg);
+    --footer-background-image: url(https://res.windsurfercrs.com/CrsMedia/P18157//footer-desktop-bg.svg);
 }
 
 @media screen and (max-width: 1199px) {
@@ -596,9 +615,12 @@ body section.container-fluid.section-module.section-last.add-animation div.col-1
 section div.images-links-6-col,
 section div.images-links-3-col {
 	display: flex;
-	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: nowrap;
+	gap: 15px;
 	width: 100%;
-	max-width: 90%;
+	max-width: var(--container-max-width);
 }
 section div.images-links-6-col .images-links-2-col-single-col,
 section div.images-links-3-col .images-links-3-col-single-col {
@@ -703,7 +725,7 @@ section .images-links-6-col .project-description {
     flex-direction: column;
     padding: 20px 30px;
     top: 0;
-    right: 15px;
+    right: 0px;
     width: 50%;
     height: 100%;
     background-color: var(--color-white);
@@ -1375,7 +1397,7 @@ footer {
 }
 
 .hotel-tile-title {
-	font-size: calc(var(--size-body) + 2px);
+	font-size: calc(var(--size-body) + 8px);
 	font-weight: 400;
 	margin-bottom: 10px;
 	text-align: left;
@@ -1403,7 +1425,7 @@ footer {
 	font-size: var(--size-body);
 	opacity: 1;
 	color: var(--color-brand-4);
-	font-weight: 600;
+	font-weight: 400;
 	transition: var(--transition-default);
 }
 
