@@ -115,7 +115,7 @@ h3 {
 h4 {
 	font-family: var(--font-title);
 	font-weight: 300;
-	font-size: calc(var(--size-subtitle) - 5px);
+	font-size: calc(var(--size-subtitle) - 8px);
 	color: var(--color-brand-3);
 }
 p {
@@ -774,13 +774,22 @@ section .images-links-6-col .project-description {
     text-align: center;
     padding: 20px 30px;
     top: 0;
-    right: 0px;
+    
     width: 50%;
     height: 100%;
     background-color: var(--color-white);
     overflow: auto;
-    transform: translateX(100%);
     transition: var(--transition-default);
+}
+
+section .images-links-6-col .project-description.right-side {
+	right: 0px;
+	transform: translateX(100%);
+}
+
+section .images-links-6-col .project-description.left-side {
+	left: 0;
+	transform: translateX(-100%);
 }
 
 section .images-links-3-col .images-links-3-col-single-col a .card-description p {
@@ -799,6 +808,12 @@ section .images-links-6-col .images-links-2-col-single-col:hover .project-descri
 	transform: translateX(0);
 	transition: var(--transition-default);
 }
+
+/*section .images-links-6-col .images-links-2-col-single-col:hover .project-description.left-side {
+	transform: translateX(0);
+	transition: var(--transition-default);
+}*/
+
 
 section .images-links-6-col .description-container {
 	display: flex;
