@@ -40,14 +40,14 @@
 	--box-shadow-header: 4px 10px 21px -21px var(--color-black);
 
 	--border-default: 1px solid var(--color-brand-1)!important;
-    --border-white: 1px solid var(--color-white);
-    --border-transparent: 1px solid transparent;
-    --border-brand-1: 1px solid var(--color-brand-1);
+	--border-white: 1px solid var(--color-white);
+	--border-transparent: 1px solid transparent;
+	--border-brand-1: 1px solid var(--color-brand-1);
 
-    --box-shadow-pre-hover-brand-1: inset 0px 0px 0 0 var(--color-brand-1);
-    --box-shadow-hover-brand-1: inset 0px -200px 0 0 var(--color-brand-1);
+	--box-shadow-pre-hover-brand-1: inset 0px 0px 0 0 var(--color-brand-1);
+	--box-shadow-hover-brand-1: inset 0px -200px 0 0 var(--color-brand-1);
 
-    --container-max-width: 1280px;
+	--container-max-width: 1280px;
 
 	--size-heading: 50px;
 	--size-title: 40px;
@@ -64,26 +64,26 @@
 	--font-title: "Lexend", sans-serif;
 	--font-menu: 'Oswald', sans-serif;
 
-	--header-background-image: url(https://res.windsurfercrs.com/CrsMedia/P18157//img.jpg);
-    --body-background-image: url(https://res.windsurfercrs.com/CrsMedia/P18157//bkg-img-03.jpg);
-    --footer-background-image: url(https://res.windsurfercrs.com/CrsMedia/P18157//footer-desktop-bg.svg);
+	--hero-img-background: url(../imgs/lunked-banner.jpg);
+	--body-background-image: url(https://res.windsurfercrs.com/CrsMedia/P18157//bkg-img-03.jpg);
+	--footer-background-image: url(https://res.windsurfercrs.com/CrsMedia/P18157//footer-desktop-bg.svg);
 }
 
 @media screen and (max-width: 1199px) {
   :root {
-    --size-heading: 40px;
-	--size-title: 30px;
-	--size-subtitle: 27px;
-	--size-body: 16px;
+		--size-heading: 40px;
+		--size-title: 30px;
+		--size-subtitle: 27px;
+		--size-body: 16px;
   }
 }
 
 @media screen and (max-width: 991px) {
   :root {
-    --size-heading: 35px;
-	--size-title: 25px;
-	--size-subtitle: 22px;
-	--size-body: 16px;
+		--size-heading: 35px;
+		--size-title: 25px;
+		--size-subtitle: 22px;
+		--size-body: 16px;
   }
 }
 /*---------------- Body ----------------*/
@@ -96,26 +96,26 @@ body {
 h1 {
 	font-family: var(--font-title);
 	font-weight: 400;
-	font-size: 40px;
+	font-size: var(--size-heading);
 	color: var(--color-black);
 	animation: fade-in-bottom-animation 0.8s cubic-bezier(0.250, 0.450, 0.560, 0.950) both;
 }
 h2 {
 	font-family: var(--font-title);
 	font-weight: 400;
-	font-size: 35px;
+	font-size: var(--size-title);
 	color: var(--color-black);
 }
 h3 {
 	font-family: var(--font-title);
 	font-weight: 300;
-	font-size: 30px;
+	font-size: var(--size-subtitle);
 	color: var(--color-brand-3);
 }
 h4 {
 	font-family: var(--font-title);
 	font-weight: 300;
-	font-size: 30px;
+	font-size: calc(var(--size-subtitle) - 5px);
 	color: var(--color-brand-3);
 }
 p {
@@ -128,7 +128,9 @@ a {
 	color: var(--color-brand-1);
 	transition: var(--transition-default);
 }
-a:hover,a:active,a:focus {
+a:hover,
+a:active,
+a:focus {
 	text-decoration: none;
 	color: var(--color-brand-2);
 	transition: var(--transition-default);
@@ -157,9 +159,9 @@ hr {
 	position: relative;
 	margin-left: 5%;
 	margin-right: 5%;
-    margin-bottom: 30px;
-    border-radius: var(--border-radius-container);
-    box-shadow: var(--box-shadow-block);
+	margin-bottom: 30px;
+	border-radius: var(--border-radius-container);
+	box-shadow: var(--box-shadow-block);
 	/* background-image: url("../imgs/img-04.jpg");
 	background-attachment: fixed;
 	background-position: center;
@@ -174,7 +176,8 @@ hr {
 	width: 100%;
 	margin: 0;
 	/*background-image: url("../imgs/pc-image-004.jpg");*/
-	background-image: url("../imgs/lunked-banner.jpg");
+	/*background-image: url("../imgs/lunked-banner.jpg");*/
+	background-image: var(--hero-img-background);
 	background-attachment: fixed;
 	background-position: center;
 	background-repeat: repeat;
@@ -191,9 +194,9 @@ hr {
 	flex-direction: column;
 	justify-content: center;
 	box-shadow: 0px 6px 12px 2px var(--color-gradient-black-15);
-    /* background-color: rgba(241, 228, 243, 0.6); */
+	/* background-color: rgba(241, 228, 243, 0.6); */
 	background-color: var(--color-gradient-white);
-    animation: fade-in-bottom-animation 0.8s cubic-bezier(0.250, 0.450, 0.560, 0.950) both;
+	animation: fade-in-bottom-animation 0.8s cubic-bezier(0.250, 0.450, 0.560, 0.950) both;
 }
 .hero-image-title h2 {
 	text-align: center;
