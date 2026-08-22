@@ -1566,7 +1566,7 @@ footer {
 }*/
 
 .hotel-tile:hover {
-  transform: scale(1.05), translateY(-20px);
+  transform: scale(1.05) translateY(-20px);
   transition: var(--transition-default);
 }
 
