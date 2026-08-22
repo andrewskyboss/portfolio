@@ -774,7 +774,6 @@ section .images-links-6-col .project-description {
     text-align: center;
     padding: 20px 30px;
     top: 0;
-    
     width: 50%;
     height: 100%;
     background-color: var(--color-white);
@@ -1260,6 +1259,17 @@ footer {
 	}
 }
 
+@keyframes slide-top {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(-20px);
+            transform: translateY(-20px);
+  }
+}
+
 @property --hero-bkg {
     syntax: "<color>";
     inherits: true;
@@ -1443,6 +1453,7 @@ footer {
 	color: var(--color-white);
 	background-color: var(--color-brand-4);
 	box-shadow: var(--box-shadow-block);
+	animation: slide-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 	transition: var(--transition-default);
 }
 
@@ -1547,7 +1558,8 @@ footer {
 }*/
 
 .hotel-tile:hover {
-  transform: scale(1.02);
+  transform: scale(1.05);
+  transition: var(--transition-default);
 }
 
 .hotel-tile img {
