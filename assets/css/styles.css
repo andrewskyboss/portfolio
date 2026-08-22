@@ -3,6 +3,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display+SC:wght@400;700&display=swap');
 
+
+@import url('https://fonts.googleapis.com/css2?family=Geist:ital,wght@0,100..900;1,100..900&family=Instrument+Serif:ital@0;1&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+
 :root {
 	--color-brand-1: #2E5A44; /*#F03A47;*/
 	/*Orange Engineering*/
@@ -66,9 +70,13 @@
 
 	--transition-default: all 0.8s ease;
 
-	--font-body: 'Raleway', sans-serif;
+	/*--font-body: 'Raleway', sans-serif;
 	--font-title: "Lexend", sans-serif;
-	--font-menu: 'Oswald', sans-serif;
+	--font-menu: 'Oswald', sans-serif;*/
+
+	--font-body: "Inter", sans-serif;
+	--font-title: "Instrument Serif", serif;
+	--font-menu: "Geist", sans-serif;
 
 	--hero-img-background: url(../imgs/lunked-banner.jpg);
 	--body-background-image: url(https://res.windsurfercrs.com/CrsMedia/P18157//bkg-img-03.jpg);
