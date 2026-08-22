@@ -4,7 +4,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display+SC:wght@400;700&display=swap');
 
 :root {
-	--color-brand-1: #F03A47;
+	--color-brand-1: #2E5A44; /*#F03A47;*/
 	/*Orange Engineering*/
 	--color-brand-2: #E9724C;
 	/*Yellow Orange*/
@@ -18,11 +18,17 @@
 	--color-black: #000000;
 	--color-white: #ffffff;
 
-	--color-bkg-01: #EFF0FC;
+	/*--color-bkg-01: #EFF0FC;
 	--color-bkg-02: #FCEDF6;
 	--color-bkg-03: #EAFBFC;
 	--color-bkg-04: #F2FCE2;
-	--color-bkg-05: #FCF2ED;
+	--color-bkg-05: #FCF2ED;*/
+
+	--color-bkg-01: #EEF1F8; /*(Soft Indigo Slate)*/
+	--color-bkg-02: #FAF0F4; /*(Muted Blush)*/
+	--color-bkg-03: #EBF5F4; /*(Studio Eucalyptus)*/
+	--color-bkg-04: #F0F6E8; /*(Soft Botanical)*/
+	--color-bkg-05: #FAF3EC; /*(Warm Alabaster)*/
 
 	--color-gradient-white:  rgba(241, 241, 241, 0.6);
 	--color-gradient-white-08: rgba(241, 241, 241, 0.8);
