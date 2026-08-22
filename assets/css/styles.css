@@ -798,9 +798,17 @@ section .images-links-3-col .images-links-3-col-single-col a .card-description p
 section .images-links-6-col .images-links-2-col-single-col:hover a span {
 	height: 100%;
 	top: 0;
-	left: 0;
+	/*left: 0;*/
 	width: 50%;
 	transition: var(--transition-default);
+}
+
+section .images-links-6-col .images-links-2-col-single-col.left-side:hover a span {
+	right: 0;
+}
+
+section .images-links-6-col .images-links-2-col-single-col.right-side:hover a span {
+	left: 0;
 }
 
 section .images-links-6-col .images-links-2-col-single-col:hover .project-description {
