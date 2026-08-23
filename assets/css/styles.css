@@ -698,9 +698,11 @@ section div.images-links-3-col .images-links-3-col-single-col a {
 	position: relative;
 	border-radius: var(--border-radius-container);
 	/* border: 1px solid #2D325A; */
-	box-shadow: 1px 1px 10px var(--color-gradient-black-20);
+	/*box-shadow: 1px 1px 10px var(--color-gradient-black-20);*/
+	box-shadow: var(--box-shadow-pre-hover-brand-1);
 	overflow: hidden;
 	width: 100%;
+	transition: var(--transition-default);
 }
 section div.images-links-6-col .images-links-2-col-single-col a span,
 section div.images-links-3-col .images-links-3-col-single-col a span {
