@@ -1543,6 +1543,7 @@ footer {
 	opacity: 1;
 	color: var(--color-brand-4);
 	font-weight: 400;
+	animation: flip-vertical-right 0.4s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
 	transition: var(--transition-default);
 }
 
