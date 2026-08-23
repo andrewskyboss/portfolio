@@ -10,15 +10,15 @@
 :root {
 	--color-brand-1: #2E5A44; /*#F03A47;*/
 	/*Orange Engineering*/
-	--color-brand-2: #E9724C;
+	--color-brand-2: #5B7F6E; /*#E9724C;*/
 	/*Yellow Orange*/
-	--color-brand-3: #2D325A;
+	--color-brand-3: #484C4B; /*#2D325A;*/
 	/*Dark Slate grey*/
-	--color-brand-4: #F1F1F1;
+	--color-brand-4: #FAFAFC; /*#F1F1F1;*/
 	/*Languid Levander * grey*/
-	--color-brand-5: #091819;
+	--color-brand-5: #1A1D1A; /*#091819;*/
 	/*Dark Jungle Green*/
-	--color-brand-6: #0A0E29;
+	--color-brand-6: #E2ECE9; /*#0A0E29;*/
 	--color-black: #000000;
 	--color-white: #ffffff;
 
