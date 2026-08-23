@@ -306,6 +306,8 @@ header .header-container {
 
 .header-row .header-logo .header-logo-link .full-name {
 	display: flex;
+	justify-content: center;
+	align-items: flex-start;
 	overflow: hidden;
 	/*gap: 5px;*/
 }
@@ -317,8 +319,9 @@ header .header-container {
 }
 
 .header-row .header-logo .header-logo-link .half-name {
-	opacity: 0;
+	/*opacity: 0;*/
 	width: 0;
+	overflow: hidden;
 	z-index: 2;
 	transform: translateX(-100%);
 	/*animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;*/
@@ -326,29 +329,30 @@ header .header-container {
 }
 
 .header-row .header-logo .header-logo-link .half-surname {
-	opacity: 0;
+	/*opacity: 0;*/
 	width: 0;
+	overflow: hidden;
 	z-index: 1;
 	transform: translateX(-100%);
 	/*animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;*/
-	transition-delay: 2s;
+	/*transition-delay: 2s;*/
 	transition: var(--transition-default);
 }
 
 .header-row .header-logo .header-logo-link:hover .half-name {
-	opacity: 1;
-	width: 96px;
+	/*opacity: 1;*/
+	width: 76px;
 	transform: translateX(0%);
 	/*animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;*/
 	transition: var(--transition-default);
 }
 
 .header-row .header-logo .header-logo-link:hover .half-surname {
-	opacity: 1;
-	width: 126px;
+	/*opacity: 1;*/
+	width: 100px;
 	transform: translateX(0%);
 	/*animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;*/
-	animation-delay: 0.4s;
+	/*animation-delay: 0.4s;*/
 	transition: var(--transition-default);
 	/*transition-delay: 1s;*/
 }
