@@ -1505,7 +1505,7 @@ footer {
 	inset: 0;
 	/*background: linear-gradient(to top, rgba(0, 0, 0, 0.75), transparent);*/
 	/*background: var(--color-gradient-white-09);*/
-	background: var(--color-brand-6);
+	background: var(--color-brand-4);
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-end;
