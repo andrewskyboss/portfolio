@@ -315,6 +315,8 @@ header .header-container {
 .header-row .header-logo .header-logo-link .first-letter,
 .header-row .header-logo .header-logo-link .second-letter {
 	/*background-color: var(--color-white);*/
+	animation: 20s linear infinite hero-bkg-cycle!important;
+	animation-delay: var(--bg-cycle-delay,0s)!important;
 	z-index: 10;
 }
 
@@ -571,8 +573,11 @@ header .navbar-container .main-menu.visible {
 	padding: 30px 0;
 }
 .main-content-text-home {
-	float: left;
-	padding: 0;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	/*float: left;*/
+	padding: 30px 0;
 }
 .row {
 	margin-right: 0;
