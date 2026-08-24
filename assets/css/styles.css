@@ -710,6 +710,7 @@ section div.images-links-3-col .images-links-3-col-single-col a span {
 	height: 40%;
 	width: 70%;
 	top: 30%;
+	z-index: 2;
 	border-radius: var(--border-radius-container);
 	display: flex;
 	flex-direction: column;
@@ -808,6 +809,7 @@ section .images-links-6-col .project-description {
     top: 0;
     width: 50%;
     height: 100%;
+    z-index: 10;
     background-color: var(--color-white);
     overflow: auto;
     transition: var(--transition-default);
@@ -1255,6 +1257,7 @@ footer {
   height: 15px;
   width: 15px;
   margin: 0 2px;
+  cursor: pointer;
   background-color: var(--color-brand-1);
   border-radius: var(--border-radius-button);
   /* transition from one do to the next */
@@ -1262,7 +1265,10 @@ footer {
 }
 .active{
   background-color: var(--color-brand-2);
-} 
+}
+.dot:hover {
+	background-color: var(--color-brand-6);
+}
 .fade{
 	opacity: 1;
 /* Animation support for different browsers */
