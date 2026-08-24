@@ -228,7 +228,7 @@ hr {
 }
 header.container-fluid {
 	background-color: var(--color-white);
-	border-bottom: 1px solid var(--color-brand-4);
+	border-bottom: 1px solid var(--color-white);
 	animation: 20s linear infinite hero-bkg-cycle!important;
 	animation-delay: var(--bg-cycle-delay,0s)!important;
 }
