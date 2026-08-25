@@ -1369,7 +1369,7 @@ footer {
     overflow: hidden;
     border-radius: 8px; /* Adjust as needed */
     height: 100%;
-    min-height: 380px;
+    min-height: 50vh;
     text-decoration: none;
 }
 
