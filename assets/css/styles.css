@@ -674,7 +674,8 @@ section div.images-links-3-col {
 	width: 100%;
 	/*max-width: var(--container-max-width);*/
 }
-section div.images-links-6-col {
+section div.images-links-6-col,
+section div.images-links-3-col {
 	gap: 20px;
 }
 
@@ -699,6 +700,10 @@ section div.images-links-3-col .images-links-3-col-single-col {
 section div.images-links-6-col .images-links-2-col-single-col {
 	padding: 0;
 	flex: 0 0 calc(50% - 10px);
+}
+section div.images-links-3-col .images-links-3-col-single-col {
+	padding: 0;
+	flex: 0 0 calc(33.33% - 10px);
 }
 section div.images-links-3-col .images-links-3-col-single-col.videos {
 	min-height: 40vh;
