@@ -1,30 +1,38 @@
 
 /*----------- Mobile menu Open Close ----------*/
-// var scrollThreshold = 50;
 
-// const mainMenuTrigger = document.querySelector(".main-menu-trigger");
-// const mainMenu = document.querySelector(".main-menu");
+var scrollThreshold = 50;
 
-// mainMenuTrigger.addEventListener("click", () => {
-// 	mainMenuTrigger.classList.toggle("main-menu-visible");
-// 	mainMenu.classList.toggle("visible");
-// })
+const mainMenuTrigger = document.querySelector(".main-menu-trigger");
+const mainMenu = document.querySelector(".main-menu");
 
-// document.querySelectorAll(".menu-link").forEach(n => n.addEventListener("click", ()=> {
-// 	mainMenuTrigger.classList.remove("main-menu-visible");
-// 	mainMenu.classList.remove("visible");
-// }))
+if (mainMenuTrigger && mainMenu) {
+  // Toggle menu state on trigger click
+  mainMenuTrigger.addEventListener("click", (e) => {
+    e.stopPropagation(); // Prevents document click handler from firing immediately
+    mainMenuTrigger.classList.toggle("main-menu-visible");
+    mainMenu.classList.toggle("visible");
+  });
 
-/*----------- Page adding scrolled class ----------*/
+  // Close menu when clicking a link inside it
+  document.querySelectorAll(".menu-link").forEach((n) =>
+    n.addEventListener("click", () => {
+      mainMenuTrigger.classList.remove("main-menu-visible");
+      mainMenu.classList.remove("visible");
+    })
+  );
 
-// $(window).on('load scroll', function(e) {
-//     // Handle scroll
-//     if($(document).scrollTop() > scrollThreshold) {
-//         $('body').addClass('scrolled');
-//     } else {
-//         $('body').removeClass('scrolled');
-//     }
-// });
+  // Close menu when clicking outside the menu and trigger button
+  document.addEventListener("click", (e) => {
+    const isClickInsideMenu = mainMenu.contains(e.target);
+    const isClickOnTrigger = mainMenuTrigger.contains(e.target);
+
+    if (!isClickInsideMenu && !isClickOnTrigger && mainMenu.classList.contains("visible")) {
+      mainMenuTrigger.classList.remove("main-menu-visible");
+      mainMenu.classList.remove("visible");
+    }
+  });
+}
 
 $(document).ready(function() {
 
