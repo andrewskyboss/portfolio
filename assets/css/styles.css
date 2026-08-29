@@ -1532,7 +1532,7 @@ footer {
 
 }
 
-@media (max-width: 500px) {
+@media (max-width: 530px) {
 	.header-row div.header-tags.left {
 		display: flex;
 	}
