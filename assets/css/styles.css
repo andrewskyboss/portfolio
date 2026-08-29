@@ -1532,6 +1532,13 @@ footer {
 
 }
 
+@media (max-width: 500px) {
+	.header-row div.header-tags.left {
+		display: flex;
+	}
+
+}
+
 
 
 /* ==========================================================================
